@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "bower install && node app.js"
+    "start": "node app.js",
+    "postinstall":"bower install"
   },
   "dependencies": {
     "body-parser": "^1.10.2",
