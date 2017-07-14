@@ -1,5 +1,5 @@
 var app = angular.module('app', ['ui.router']);
-app.value('serverURL', { value: 'http://localhost:8080' });
+app.value('serverURL', { value: 'https://arq-back.herokuapp.com/' });
 
 app.config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise("/login");
