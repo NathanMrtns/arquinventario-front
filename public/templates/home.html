@@ -1,0 +1,21 @@
+<!DOCTYPE>
+<html ng-app="app">
+<meta charset="utf-8">
+<head>
+	<title>Arquinventario</title>
+</head>
+<body>
+	<div id='homeBox' class='jumbotron'>
+		<h2>Patrimônios Cadastrados</h2>
+		<br>
+
+		<table class='table'>
+	  		<tr ng-repeat='patrimony in patrimonies'>
+	  			<td ng-click='goToBuildingPage(patrimony)'><h3>{{patrimony.name}}</h3><td>
+	  		</tr>
+		</table>
+
+		<button id='confirmButton' type='button' ng-click='goToAddBuildingPage()' class='btn btn-primary'>Cadastrar Novo Patrimônio</button>
+	</div>
+</body>
+</html>

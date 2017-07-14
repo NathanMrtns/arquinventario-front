@@ -1,0 +1,48 @@
+<!DOCTYPE>
+<html ng-app="app">
+<meta charset="utf-8">
+
+<head>
+	<title>Arquinventario</title>
+</head>
+  
+<body>
+  <div id='buildingBox' class='jumbotron'>
+    <h2>Detalhes Sobre o Patrimônio</h2>
+
+    <form name="formBuilding" id="formBuilding" class="form-horizontal" enctype="multipart/form-data">
+      <h4>Nome</h4>
+      <h5>{{name}}</h5>
+
+      <h4>Ano</h4>
+      <h5>{{year}}</h5>
+
+      <h4>Estilo Arquitetônico</h4>
+      <h5>{{style}}</h5>
+
+      <h4>História</h4>
+      <h5>{{history}}</h5>
+
+      <h4>Descrição</h4>
+      <h5>{{description}}</h5>
+
+      <h4>Tipologia</h4>
+      <h5>{{tipology}}</h5>
+
+      <h4>Endereço</h4>
+      <h5>{{address}}</h5>
+
+      <h4>Fotos</h4>
+      <h5>Não disponíveis!</h5>
+
+      <div class='form-group'>
+        <button type='button' ng-click="goToEditPage()" class='btn btn-primary'>Editar</button>
+
+        <button type='button' ng-click="delete()" name='btn_remove' class='btn btn-danger'>Excluir</button>
+
+        <button type='button' ng-click='goToHomePage()' class='btn btn-warning'>Cancelar</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

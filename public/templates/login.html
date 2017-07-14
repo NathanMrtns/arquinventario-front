@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
+  <meta charset="UTF-8">
+  <script src="lib/angular/angular.js"></script>
+  </head>
+
+<body style="background: url(assets/Background.png);">
+<div id="logo" align="center">
+  <img src="assets/Arq.png"/>
+</div>
+<h2 id="desc" align="center">Um inventário digital que busca facilitar o acesso à informação sobre todo o patrimônio construído na querida Campina Grande <br>O que está esperando? Faça parte da nossa comunidade e ajuda a preservar a história da nossa cidade</h2>
+<br>
+    <div id = "navbar" align="center">
+      <h2 id="padding" align="center"><a href="#" id="loginform" ng-click="viewDiv = true">Entre</a> | <a href="#" id="signform" ng-click="viewDiv = false">Cadastre-se</a></h2>
+
+        <div class="login" align="center" ng-show="viewDiv">
+          <div class="formholder">
+            <div class="randompad">
+               <fieldset>
+                  <form name="form" id="form" class="form-horizontal" enctype="multipart/form-data" method="POST">
+                      <div class="input-group">
+                          <input id="user" type="email" class="form-control" name="email" ng-model="email" value="" placeholder="Email" required="true"/>
+                      </div>
+
+                      <div class="input-group">
+                          <input id="password" type="password" class="form-control" name="password" ng-model="password" placeholder="Senha" required="true">
+                      </div>
+                      <p ng-show="error" style="color: red;">{{ error }}</p>
+                    <input class = "button" type = submit value = "entrar" ng-click = "login()"/>
+                  </form>  
+               </fieldset>
+            </div>
+          </div>
+        </div>
+        <div class="signup" align="center" ng-show="!viewDiv">
+          <div class="formholder">
+            <div class="randompad">
+               <fieldset>
+                  <form name="form" id="form" class="form-horizontal" enctype="multipart/form-data" method="POST">
+                      <div class="input-group">
+                          <input id="name" type="text" class="form-control" name="nome" ng-model="nome" value="" placeholder="Nome completo" required="true"/>
+                      </div>
+
+                      <div class="input-group">
+                          <input id="user" type="email" class="form-control" name="email" ng-model="email2" value="" placeholder="Email" required="true"/>
+                      </div>
+
+                      <div class="input-group">
+                          <input id="password" type="password" class="form-control" name="password" ng-model="senha" placeholder="Senha" required="true">
+                      </div>
+
+                      <div class="input-group">
+                          <input id="password-repeat" type="password" class="form-control" name="password-repeated" ng-model="senhaRepetida" value="" placeholder="Repetir senha" required="true"/>
+                      </div>
+                      <p ng-show="error" style="color: red;">{{ error }}</p>
+                    <input class = "button" type = submit value = "cadastrar" ng-click = "signUp()"/>
+                  </form>  
+               </fieldset>
+            </div>
+          </div>
+        </div>
+                  <h3 id="padding" align="center">Ou você pode entrar sem cadastro <a ui-sref="home" id="here">aqui</a></h3>
+
+  </div>
+
+</body>
+
+
+</html>

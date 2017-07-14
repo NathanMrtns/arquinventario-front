@@ -1,0 +1,59 @@
+<!DOCTYPE>
+<html ng-app="app">
+<meta charset="utf-8">
+<head>
+  <title>Arquinventario</title>
+</head>
+<body>
+  <div id='addNewBuildingBox' class='jumbotron'>
+    <h2 id='mainHeader'>Cadastrar Novo Patrimônio</h2>
+
+    <form id="formAddNewBuilding" name="formAddNewBuilding" class="form-horizontal" enctype="multipart/form-data" method="POST">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Nome do Patrimônio*" name="name" id='name' ng-model="name" ng-required="true">
+        <p ng-show="formAddNewBuilding.name.$invalid && formAddNewBuilding.name.$dirty" class=help-block>Por favor, preencher o campo do nome.</p>        
+      </div>
+
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Endereço*" name="address" id='address' ng-model="address" ng-required="true">
+        <p ng-show="formAddNewBuilding.address.$invalid && formAddNewBuilding.address.$dirty" class=help-block>Por favor, preencher o campo do endereço.</p>        
+      </div>
+
+      <div class="form-group">
+        <input type="number" class="form-control" placeholder="Data de Construção" name='year' id='year' ng-model='year'>
+      </div>
+
+      <div class="form-group">
+        <select ng-model='style' class="form-control" ng-options='style for style in styles' name="style" ng-required="true">
+          <option value=''>Estilo Arquitetônico*</option>
+        </select>
+
+        <p ng-show="formAddNewBuilding.style.$invalid && formAddNewBuilding.style.$dirty" class=help-block>Por favor, preencher o campo do estilo arquitetônico.</p>        
+      </div>
+
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="História do Patrimônio" name='history' id='history' ng-model='history'>
+      </div>
+
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Características do Patrimônio" name='description' id='description' ng-model='description'>
+      </div>
+
+      <div class="form-group">
+        <select ng-model='tipology' class="form-control" ng-options='type for type in types' name="tipology" ng-required="true">
+          <option value=''>Tipologia*</option>
+        </select>
+
+        <p ng-show="formAddNewBuilding.tipology.$invalid && formAddNewBuilding.tipology.$dirty" class=help-block>Por favor, preencher o campo da tipologia.</p>
+      </div>
+
+      <input type="hidden" class="form-control" placeholder="Fotos" name='photos' id='photos' ng-model='photos'>
+
+      <div class='form-group'>
+        <button type="button" ng-click='submit()' class="btn btn-primary" ng-disabled="formAddNewBuilding.$invalid">Cadastrar</button>
+        <button type="button" ng-click='goToHomePage()' class="btn btn-danger">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

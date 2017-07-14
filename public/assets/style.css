@@ -1,0 +1,203 @@
+#arq {
+  max-width: 70%;
+}
+
+#image {
+   border-top-left-radius: 10px;
+   border-top-right-radius: 10px;
+}
+
+#icon {
+  max-width: 70%;
+  margin: 5%;
+}
+
+#loginbox {
+    margin-top: 5%;
+}
+
+#loginbox > div:first-child {        
+    padding-bottom: 10px;    
+}
+
+.iconmelon {
+    display: block;
+    margin: auto;
+}
+
+#form > div {
+    margin-bottom: 25px;
+}
+
+#form > div:last-child {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.panel {    
+    width: 50%;
+    box-shadow: 0px 4px 8px #888888;
+    border-radius: 10px;
+}
+
+.panel-body {
+    padding-top: 30px;
+
+}
+
+#particles {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    top: 0;                        
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    z-index: -2;
+}
+
+.iconmelon,
+.im {
+  max-width: 60%;
+  max-height: 60%;
+  position: relative;
+  display: block;
+  fill: #525151;
+  padding: 20px;
+}
+
+#addNewBuildingBox {
+  width: 700px;
+  padding-right: 60px;
+  padding-left: 60px;
+  text-align: center;
+  margin-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 10px !important;
+}
+
+#addNewBuildingBox > h2 {
+  padding-bottom: 10px;
+}
+
+#formAddNewBuilding > input {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#formAddNewBuilding > div.form-group {
+  margin-top: 30px;
+}
+
+#formAddNewBuilding > select {
+  width: 580px;
+  height:30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#homeBox {
+  width: 700px;
+  padding-right: 60px;
+  padding-left: 60px;
+  margin-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#homeBox > h2 {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+table tr:hover {
+  background: #d6d6d6;
+  cursor:pointer
+}
+
+#homeBox > button#confirmButton {
+  margin-top: 20px;
+}
+
+#buildingBox {
+  width: 700px;
+  padding-right: 60px;
+  padding-left: 60px;
+  margin-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#buildingBox > h2 {
+  margin-bottom: 20px;
+}
+
+#formBuilding > h4,h5 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#formBuilding > div.form-group {
+  margin-top: 30px;
+}
+
+#linkToAddComplaint {
+  text-align: center;
+}
+
+#linkToAddComplaint > a {
+  color: red;
+}
+
+#addNewComplaintBox {
+  width: 700px;
+  padding-right: 60px;
+  padding-left: 60px;
+  text-align: center;
+  margin-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#addNewComplaintBox > h2 {
+  margin-bottom: 20px;
+}
+
+#formAddNewComplaint > div.form-group {
+  margin-top: 30px;
+}
+
+#formAddNewComplaint > input {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#complaintsBox {
+  width: 700px;
+  padding-right: 60px;
+  padding-left: 60px;
+  margin-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#complaintsBox > table tr:hover {
+  background: #d6d6d6;
+  cursor:pointer
+}
+
+#searchBox {
+  width: 700px;
+  padding-right: 60px;
+  padding-left: 60px;
+  margin-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#divBusca img{
+  float:left;
+}
+

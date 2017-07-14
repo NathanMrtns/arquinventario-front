@@ -1,0 +1,17 @@
+<!DOCTYPE>
+<html ng-app="app">
+<meta charset="utf-8">
+<head>
+	<title>Arquinventario</title>
+</head>
+<body>
+	<div id='complaintsBox' class='jumbotron'>
+		<h2>Denúncias</h2>
+		<table class='table'>
+	  		<tr ng-repeat='complaint in complaints'>
+	  			<td ng-click='goToComplaintPage(complaint)'><h3>{{complaint.title}}</h3></td>
+	  		</tr>
+		</table>
+	</div>
+</body>
+</html>

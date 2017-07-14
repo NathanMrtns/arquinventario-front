@@ -1,0 +1,39 @@
+<!DOCTYPE>
+<html ng-app="app">
+<meta charset="utf-8">
+<head>
+	<title>Arquinventario</title>
+</head>
+<body>
+	<div id='addNewComplaintBox' class='jumbotron'>
+		<h2>Denunciar Demolição Clandestina</h2>
+
+			<form id="formAddNewComplaint" name="formAddNewComplaint" class="form-horizontal" enctype="multipart/form-data" method="POST">
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Título da Denúncia*" name="title" ng-model="title" ng-required="true">
+					<p ng-show="formAddNewComplaint.title.$invalid && formAddNewComplaint.title.$dirty" class="help-block">Por favor, preencher o campo do título.</p>					
+				</div>
+
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Endereço da Demolição*" name="address" ng-model="address" ng-required="true">
+					<p ng-show="formAddNewComplaint.address.$invalid && formAddNewComplaint.address.$dirty" class="help-block">Por favor, preencher o campo do endereço.</p>					
+				</div>
+
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Data* (dd/mm/aaaa)" name="date" ng-model="date" ng-required="true">
+					<p ng-show="formAddNewComplaint.date.$invalid && formAddNewComplaint.date.$dirty" class="help-block">Por favor, preencher o campo da data.</p>					
+				</div>
+
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Descrição do Ambiente*" name="description" ng-model="description" ng-required="true">
+					<p ng-show="formAddNewComplaint.description.$invalid && formAddNewComplaint.description.$dirty" class="help-block">Por favor, preencher o campo da descrição.</p>					
+				</div>
+
+				<div class='form-group'>
+					<button type="button" ng-click='submit()' class="btn btn-primary" ng-disabled="formAddNewComplaint.$invalid">Denunciar</button>
+					<button type="button" ng-click='goToHomePage()' class="btn btn-danger">Cancelar</button>
+	      		</div>
+			</form>
+	</div>
+</body>
+</html>

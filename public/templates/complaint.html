@@ -1,0 +1,30 @@
+<!DOCTYPE>
+<html ng-app="app">
+<meta charset="utf-8">
+
+<head>
+	<title>Arquinventario</title>
+</head>
+  
+<body>
+  <div id='complaintsBox' class='jumbotron'>
+    <h2>Detalhamento da Denúncia</h2>
+<br>
+    <form name="formBuilding" id="formBuilding" class="form-horizontal" enctype="multipart/form-data">
+      
+      <h4>Title</h4>
+      <h5>{{title}}</h5>
+
+      <h4>Local</h4>
+      <h5>{{address}}</h5>
+
+      <h4>Descrição</h4>
+      <h5>{{description}}</h5>
+
+      <div class='form-group'>
+        <button type='button' ng-click='goToComplaintsPage()' class='btn btn-warning'>Voltar</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
