@@ -34,7 +34,7 @@ app.controller('searchForBuildingsCtrl', function($scope, $http, $state){
 		if($scope.searchName != ""){
 			$http({
 				method: 'GET',
-				url: 'http://localhost:8080/patrimony/'+type+'/'+$scope.searchName,
+				url: serverURL.value + '/patrimony/'+type+'/'+$scope.searchName,
 			}).then(function(result){
 
 				if(result.status == 200){

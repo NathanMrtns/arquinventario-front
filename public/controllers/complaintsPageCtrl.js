@@ -6,7 +6,7 @@ app.controller('complaintsPageCtrl', ['$scope', '$http', '$state', function($sco
 	getAllComplaints = function() {
 		$http({
 			method: 'GET',
-			url: 'http://localhost:8080/report',
+			url: serverURL.value + '/report',
 		}).then(function(response){
 			$scope.complaints = response.data;
 		});
