@@ -1,6 +1,6 @@
 var app = angular.module('app');
 
-app.controller('complaintsPageCtrl', ['$scope', '$http', '$state', function($scope, $http, $state) {
+app.controller('complaintsPageCtrl', ['$scope', '$http', '$state','serverURL', function($scope, $http, $state, serverURL) {
 	$scope.complaints = "";
 
 	getAllComplaints = function() {

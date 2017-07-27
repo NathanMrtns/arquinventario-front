@@ -1,6 +1,6 @@
 var app = angular.module('app');
 
-app.controller('searchForBuildingsCtrl', function($scope, $http, $state){
+app.controller('searchForBuildingsCtrl', ['serverURL', '$scope', '$http', '$state', function(serverURL, $scope, $http, $state, serverURL){
 	type = "name";
 	$scope.isName = 1;
 	
@@ -66,6 +66,6 @@ app.controller('searchForBuildingsCtrl', function($scope, $http, $state){
 	$scope.openPatrimony = function(patrimony){
 		$state.go('building', patrimony);
 	}
-});
+}]);
 
 
