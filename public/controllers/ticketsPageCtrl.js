@@ -1,6 +1,6 @@
 var app = angular.module('app');
 
-app.controller('ticketsPageCtrl', ['$scope', '$http', '$state', function($scope, $http, $state) {
+app.controller('ticketsPageCtrl', ['serverURL', '$scope', '$http', '$state', function(serverURL, $scope, $http, $state) {
 	$scope.tickets = "";
 
 	getAllTickets = function() {
