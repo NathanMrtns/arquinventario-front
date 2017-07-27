@@ -1,6 +1,6 @@
 var app = angular.module('app');
 
-app.controller('searchForBuildingsCtrl', ['serverURL', '$scope', '$http', '$state', function(serverURL, $scope, $http, $state, serverURL){
+app.controller('searchForBuildingsCtrl', ['serverURL', '$scope', '$http', '$state', function(serverURL, $scope, $http, $state){
 	type = "name";
 	$scope.isName = 1;
 	
