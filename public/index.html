@@ -56,7 +56,10 @@
                     <a href="">Usuários</a>
                 </li>
                 <li>
-                    <a href="">Tickets</a>
+                    <a href="" ng-click="addNewTicket()">Adicionar Ticket</a>
+                </li>
+                <li>
+                    <a href="" ng-click="tickets()">Tickets</a>
                 </li>
                 <li>
                     <a href="" ng-click="institutes()">Órgãos</a>
@@ -95,6 +98,8 @@
     <script src="controllers/complaintsPageCtrl.js"></script>
     <script src="controllers/complaintCtrl.js"></script>
     <script src="controllers/uploadService.js"></script>
+    <script src="controllers/addTicketCtrl.js"></script>
+    <script src="controllers/ticketsPageCtrl.js"></script>
 
 	<script>
 		function toggle(){
