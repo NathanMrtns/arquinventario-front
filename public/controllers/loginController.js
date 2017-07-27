@@ -40,7 +40,12 @@ app.controller('loginCtrl', ['serverURL', '$scope', '$http', '$state', function(
             $http({
                 method: 'POST',
                 url: serverURL.value+'/user',
-                data: {name: $scope.nome, email: $scope.email2, password: $scope.senha}
+                data: {
+                       role: "comum",
+                       name: $scope.nome,
+                       email: $scope.email2,
+                       password: $scope.senha
+                    }
             }).then(function(result){
                 console.log(result);
                 if(result.status == 200){

@@ -33,7 +33,7 @@
       <h5>{{address}}</h5>
 
       <h4>Fotos</h4>
-      <h5>Não disponíveis!</h5>
+      <img style="width:70%;" data-ng-src="data:image/png;base64,{{patImg}}">
 
       <div class='form-group'>
         <button type='button' ng-click="goToEditPage()" class='btn btn-primary'>Editar</button>
@@ -43,6 +43,21 @@
         <button type='button' ng-click='goToHomePage()' class='btn btn-warning'>Cancelar</button>
       </div>
     </form>
+    
+	<h4>Informações Adicionais</h4>
+
+	<div ng-repeat="info in informations">
+		{{info}}
+		<br>
+	</div>
+
+	<br>
+    <div class="form-group"> <label for="comment">Adicione Informações:</label>  
+    	<textarea ng-model="info" class="form-control" rows="5" id="comment"></textarea>
+    </div>	
+     <button type='button' ng-click='sendComment()' class='btn btn-info'>Enviar</button>
+    
+ 
   </div>
 </body>
 </html>

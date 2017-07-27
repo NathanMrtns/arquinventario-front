@@ -2,16 +2,16 @@
   "name": "Arquinventario",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
-  "scripts": {
-    "start": "./node_modules/bower/bin/bower install && node app.js",
-    "postinstall":"node ./node_modules/bower/bin/bower install"
-  },
+  "main": "server.js",
   "dependencies": {
     "body-parser": "^1.10.2",
     "bower": "^1.8.0",
     "cors": "^2.8.3",
     "express": "^4.11.1"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  }
 }

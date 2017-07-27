@@ -1,6 +1,6 @@
 var app = angular.module('app');
 
-app.controller('newBuildingController', ['serverURL', '$scope', '$http', '$state', function(serverURL, $scope, $http, $state) {
+app.controller('newBuildingController', ['serverURL', '$scope', '$http', '$state','Files', function(serverURL, $scope, $http, $state, Files) {
 
 	$scope.name = "";
 	$scope.year = "";
@@ -14,7 +14,7 @@ app.controller('newBuildingController', ['serverURL', '$scope', '$http', '$state
 	$scope.styles = ["Arte Deco", "Contemporâneo", "Eclético", "Protomoderno", "Moderno"];
 	$scope.types = ["Comercial Misto", "Institucional", "Religioso", "Residencial"];
 
-	$scope.submit = function(){
+	$scope.submit = function(file){
 		console.log($scope.address);
 		data =  {
 				"name":$scope.name,
@@ -31,6 +31,11 @@ app.controller('newBuildingController', ['serverURL', '$scope', '$http', '$state
 			url: serverURL.value+'/patrimony',
 			data: data
 		}).then(function(response){
+			Files.upload(file, $scope.name).then(function (data) {
+                console.log('Uploaded successfully');
+            }).catch(function(){
+                console.log('Upload failed');
+            });
 			$state.go("home");
 		});
 	}
@@ -38,6 +43,17 @@ app.controller('newBuildingController', ['serverURL', '$scope', '$http', '$state
 	$scope.goToHomePage = function() {
 		$state.go("home");
 	}
+
+	$scope.upload = function (file, filename) {
+        if (file) {
+			console.log("in")
+            Files.upload(file, $scope.name).then(function (data) {
+                console.log('Uploaded successfully');
+            }).catch(function(){
+                console.log('Upload failed');
+            });
+        }
+    };
 
 }]);
 

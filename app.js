@@ -17,5 +17,5 @@ app.use(allowCors);
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 
-app.listen(process.env.PORT || 3000);
+app.listen(3000);
 console.log("App running on port 3000");
