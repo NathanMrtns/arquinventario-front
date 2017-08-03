@@ -12,13 +12,13 @@
 	</div>
             
 	<div class="row">                
-		<h2> Pesquisar Patrimônios no sistema
+		<h2> Pesquisar patrimônios no sistema </h2>
 	</div>
 	<br>        
     <br>  
 	
 	<p ng-show="error" style="color: red;">{{ error }}</p> 
-	<form name="form" id="form" class="form-horizontal" enctype="multipart/form-data">
+	<form name="form" id="form" class="form-horizontal" enctype="multipart/form-data" style="font-size: 15px;">
 		<input type="text" class="form-control" ng-model="searchName" id="txtBusca" placeholder="Digite sua busca"/>
 
 		<input type="radio" name="vehicle" value="Nome" ng-checked="isName" ng-click="checkName()" > Nome 

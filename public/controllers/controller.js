@@ -1,8 +1,8 @@
-var app = angular.module('app', ['ui.router', 'ngFileUpload']);
+var app = angular.module('app', ['ui.router', 'ngFileUpload', 'ngMaps']);
 app.value('serverURL', { value: 'https://arq-back.herokuapp.com' });
 
 app.config(function($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise("/login");
+    $urlRouterProvider.otherwise("/home");
 
     $stateProvider
 
@@ -97,11 +97,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
 app.controller('MenuCtrl', ['serverURL', '$rootScope', '$scope', '$http', '$state', function(serverURL,$rootScope , $scope, $http, $state) {
 
-    $scope.state = "default";
+    $scope.state = 'default';
 
     $rootScope.$on('$viewContentLoading', function(event, viewConfig)
     {
         $scope.state = $state.current.name;
+        $scope.userRole = sessionStorage.getItem('role');
     });
 
     $scope.addPatrimony = function(){
@@ -138,5 +139,10 @@ app.controller('MenuCtrl', ['serverURL', '$rootScope', '$scope', '$http', '$stat
 
     $scope.tickets = function(){
         $state.go("ticketsPage");
+    }
+
+    $scope.logout = function(){
+        sessionStorage.clear();
+        $state.go("home");
     }
 }]);

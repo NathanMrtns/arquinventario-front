@@ -2,7 +2,7 @@ var app = angular.module('app');
 
 app.controller('loginCtrl', ['serverURL', '$scope', '$http', '$state', function(serverURL, $scope, $http, $state) {
     $scope.viewDiv  = true;
-    $scope.$state = $state.current.name;
+    $scope.$state   = "";
     $scope.email    = "";
     $scope.password = "";
 
@@ -10,6 +10,7 @@ app.controller('loginCtrl', ['serverURL', '$scope', '$http', '$state', function(
     $scope.senha         = "";
     $scope.nome          = "";
     $scope.email2        = "";
+    $scope.$userRole     = sessionStorage.getItem('role');
 
     $scope.login = function(){
         $http({
@@ -21,6 +22,7 @@ app.controller('loginCtrl', ['serverURL', '$scope', '$http', '$state', function(
             }
         }).then(function success(response){
             if(response.status == 200){
+                sessionStorage.setItem("role", response.data);
                 $state.go("home");
             }else{
                 $scope.error = "Credenciais inválidas!"
@@ -31,8 +33,6 @@ app.controller('loginCtrl', ['serverURL', '$scope', '$http', '$state', function(
     }
 
     $scope.signUp = function(){
-        console.log("entrou")
-
         if($scope.senha != $scope.senhaRepetida){
             $scope.error = "As senhas devem ser as mesmas!";
         }else{

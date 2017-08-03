@@ -4,6 +4,8 @@
 	<!-- Scripts --> 
 	<script src="lib/angular/angular.js"></script>
     <script src="lib/ng-file-upload/ng-file-upload-all.js"></script>
+    <script src="lib/ng-maps/dist/ng-maps.js"></script>
+    <script src="http://maps.google.com/maps/api/js?v=3&key=AIzaSyBJBqouU5OWM2hbYavdqWvE6baRD3rVogk"></script>
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script>
 	<script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -13,18 +15,14 @@
 	<!--<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap-theme.css">-->
 	<link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="assets/login.css">
-	<link rel="stylesheet" href="assets/simple-sidebar.css">
+    <link rel="stylesheet" href="assets/simple-sidebar.css">
     <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
-	
-	<title>Arquinventario</title>
+    
+    <title>Arquinventario</title>
 </head>
 
-<body ng-controller="MenuCtrl as ctrl">
-    <div id="login" ng-show="state === 'login'">
-        	<div ui-view></div>
-    </div>
-    
-    <div id="other" ng-show="state !== 'login'">
+<body ng-controller="MenuCtrl as ctrl" style="background: url(assets/Background.png);">
+    <div id="other">
         <div id="wrapper" class="toggled">
 
         <!-- Sidebar -->
@@ -32,68 +30,133 @@
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
                     <a href="">
-						<div class="menu-icon"> 
-                        	<span class="glyphicon glyphicon-menu-hamburger" onclick="toggle()"></span>
-						</div>
+                        <div class="menu-icon"> 
+                            <span class="glyphicon glyphicon-menu-hamburger" onclick="toggle()"></span>
+                        </div>
                     </a>
                 </li>
+                <div ng-show="userRole === 'comum'">
                 <li>
-                    <a href="" ng-click="patrimonies()">Patrimônios</a>
+                    <a href="" ng-click="report()" onClick="toggle()">Denunciar</a>
                 </li>
                 <li>
-                    <a href="" ng-click="addPatrimony()">Adicionar Patrimônio</a>
+                    <a href="" ng-click="patrimonies()" onClick="toggle()">Patrimônios</a>
+                </li>
+                <hr>
+                <li>
+                    <a href="" ng-click="search()" onClick="toggle()">Procurar</a>
                 </li>
                 <li>
-                    <a href="" ng-click="report()">Denunciar</a>
+                    <a href="" onClick="toggle()">Sobre</a>
+                </li>
+                <hr>
+                <li>
+                    <a href="" ng-click="institutes()" onClick="toggle()">Seções</a>
                 </li>
                 <li>
-                    <a href="" ng-click="listOfReports()">Denúncias</a>
+                    <a href="" ng-click="addNewTicket()">Tickets</a>
+                </li>
+                <hr>
+                <li>
+                    <a href="" onClick="toggle()">Usuários</a>
                 </li>
                 <li>
-                    <a href="" ng-click="search()">Procurar</a>
+                    <a href="" ng-click="logout()" onClick="toggle()">Sair</a>
+                </li>
+                </div>
+
+                <div ng-show="userRole === null">
+                <li>
+                    <a href="" ng-click="report()" onClick="toggle()">Denunciar</a>
                 </li>
                 <li>
-                    <a href="">Usuários</a>
+                    <a href="" ng-click="patrimonies()" onClick="toggle()">Patrimônios</a>
+                </li>
+                <hr>
+                <li>
+                    <a href="" ng-click="search()" onClick="toggle()">Procurar</a>
                 </li>
                 <li>
-                    <a href="" ng-click="addNewTicket()">Adicionar Ticket</a>
+                    <a href="" onClick="toggle()">Sobre</a>
+                </li>
+                <hr>
+                <li>
+                    <a href="" ng-click="institutes()" onClick="toggle()">Seções</a>
                 </li>
                 <li>
-                    <a href="" ng-click="tickets()">Tickets</a>
+                    <a href="" ng-click="addNewTicket()">Tickets</a>
+                </li>
+                <hr>
+                <li>
+                    <a href="" onClick="toggle()">Usuários</a>
                 </li>
                 <li>
-                    <a href="" ng-click="institutes()">Órgãos</a>
-                </li>
-                <li>
-                    <a href="">Sobre</a>
-                </li>
-				<li>
                     <a href="" ng-click="login()" onClick="toggle()">Entrar</a>
                 </li>
+                </div>
+
+                <div ng-show="userRole === 'admin'">
+                <li>
+                    <a href="" ng-click="listOfReports()" onClick="toggle()">Denúncias</a>
+                </li>
+                <li>
+                    <a data-toggle="collapse" href="#collapse1">Patrimônios</a>
+                </li>
+                <ul id="collapse1" class="panel-collapse collapse">
+                    <li><a href="" ng-click="addPatrimony()" style="font-size: 17px; padding-left: 15px;">Criar</a></li>
+                    <li><a href="" ng-click="patrimonies()" style="font-size: 17px; padding-left: 15px;">Listar</a></li>
+                </ul>
+                <hr>
+                <li>
+                    <a href="" ng-click="search()" onClick="toggle()">Procurar</a>
+                </li>
+                <li>
+                    <a href="" onClick="toggle()">Sobre</a>
+                </li>
+                <hr>
+                <li>
+                    <a href="" ng-click="institutes()" onClick="toggle()">Seções</a>
+                </li>
+                <li>
+                    <a data-toggle="collapse" href="#collapse2">Tickets</a>
+                </li>
+                <ul id="collapse2" class="panel-collapse collapse">
+                    <li><a href="" ng-click="addNewTicket()" style="font-size: 17px; padding-left: 15px;">Criar</a></li>
+                    <li><a href="" ng-click="tickets()" style="font-size: 17px; padding-left: 15px;">Listar</a></li>
+                </ul>
+                <hr>
+                <li>
+                    <a href="" onClick="toggle()">Usuários</a>
+                </li>
+                <li>
+                    <a href="" ng-click="logout()" onClick="toggle()">Sair</a>
+                </li>
+                </div>
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
+
+    </div>
 
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-						<div ui-view></div>
+                        <div ui-view></div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- /#page-content-wrapper -->
     </div>
-    </div>
 </body>
-	<script src="controllers/controller.js"></script>
-	<script src="controllers/newBuildingController.js"></script>
-	<script src="controllers/homeCtrl.js"></script>
-	<script src="controllers/buildingCtrl.js"></script>
-	<script src="controllers/loginController.js"></script>
-	<script src="controllers/addComplaintCtrl.js"></script>
+    <script src="controllers/controller.js"></script>
+    <script src="controllers/newBuildingController.js"></script>
+    <script src="controllers/homeCtrl.js"></script>
+    <script src="controllers/buildingCtrl.js"></script>
+    <script src="controllers/loginController.js"></script>
+    <script src="controllers/addComplaintCtrl.js"></script>
     <script src="controllers/searchForBuildingsCtrl.js"></script>
     <script src="controllers/complaintsPageCtrl.js"></script>
     <script src="controllers/complaintCtrl.js"></script>
@@ -101,15 +164,18 @@
     <script src="controllers/addTicketCtrl.js"></script>
     <script src="controllers/ticketsPageCtrl.js"></script>
 
-	<script>
-		function toggle(){
-			$("#wrapper").toggleClass("toggled");
-			var menuClass = $("#wrapper").attr('class');
-			if(menuClass == "toggled"){
-				$('li').show();
-			}else{
-				$('li').not(":eq(0)").hide();
-			}
-		}
+    <script>
+        function toggle(){
+            $("#wrapper").toggleClass("toggled");
+            var menuClass = $("#wrapper").attr('class');
+            if(menuClass == "toggled"){
+                $('li').show();
+                $('hr').show();
+            
+            }else{
+                $('li').not(":eq(0)").hide();
+                $('hr').hide();
+            }
+        }
     </script>
 </html>

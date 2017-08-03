@@ -4,6 +4,7 @@ app.controller('addTicketCtrl', ['serverURL', '$scope', '$http', '$state', funct
 	$scope.title = "";
 	$scope.address = "";
 	$scope.description = "";
+	$scope.status = "pending"; //accepted, pending and refused 
 
 	$scope.urgencyLevels = ["Baixo", "Médio", "Alto"];
 
@@ -14,9 +15,12 @@ app.controller('addTicketCtrl', ['serverURL', '$scope', '$http', '$state', funct
 			data: {
 				"title": $scope.title,
 				"address": $scope.address,
-				"description": $scope.description
+				"description": $scope.description,
+				"status":  $scope.status
 			}
 		}).then(function(response) {
+			console.log("test");
+			console.log(response);
 			$state.go("home");
 		})
 	}

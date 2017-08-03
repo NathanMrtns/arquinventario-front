@@ -13,4 +13,12 @@ app.controller('ticketsPageCtrl', ['serverURL', '$scope', '$http', '$state', fun
 	}
 
 	getAllTickets();
+
+	$scope.acceptTicket = function(ticket) {
+		ticket.status = "accepted";
+	}
+
+	$scope.refuseTicket = function(ticket) {
+		ticket.status = "refused";
+	}
 }]);

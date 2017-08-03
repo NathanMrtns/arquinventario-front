@@ -1,3 +1,24 @@
+body {
+    background-color: white;
+}
+
+hr {
+  width:93%;
+  margin-left: 10px;
+  border: none;
+  height: 2px;
+  /* Set the hr color */
+  color:#1a2733; /* old IE */
+  background-color: #1a2733; /* Modern Browsers */
+}
+
+#sobre{
+  font-size: 25px;
+  color: #ecf0f1;
+  margin-bottom: 40px;
+}
+
+
 #arq {
   max-width: 70%;
 }
@@ -35,6 +56,7 @@
 }
 
 .panel {    
+    background-color: white;
     width: 50%;
     box-shadow: 0px 4px 8px #888888;
     border-radius: 10px;
@@ -76,6 +98,7 @@
   margin-right: auto;
   margin-left: auto;
   border-radius: 10px !important;
+  background: #ecf0f1;
 }
 
 #addNewBuildingBox > h2 {
@@ -102,9 +125,11 @@
   width: 700px;
   padding-right: 60px;
   padding-left: 60px;
+  text-align: center;
   margin-top: 20px;
   margin-right: auto;
   margin-left: auto;
+  background: #ecf0f1;
 }
 
 #homeBox > h2 {
@@ -125,9 +150,11 @@ table tr:hover {
   width: 700px;
   padding-right: 60px;
   padding-left: 60px;
+  text-align: center;
   margin-top: 20px;
   margin-right: auto;
-  margin-left: auto;
+  margin-left: auto;  
+  background: #ecf0f1;
 }
 
 #buildingBox > h2 {
@@ -159,6 +186,7 @@ table tr:hover {
   margin-top: 20px;
   margin-right: auto;
   margin-left: auto;
+  background: #ecf0f1;
 }
 
 #addNewComplaintBox > h2 {
@@ -181,6 +209,15 @@ table tr:hover {
   margin-top: 20px;
   margin-right: auto;
   margin-left: auto;
+  background: #ecf0f1;
+}
+
+#divBusca{
+  background-color:#E0EEEE;
+  border:solid 2px #5F9EA0;
+  border-radius:10px;
+  width:350px;
+  height:32px;
 }
 
 #complaintsBox > table tr:hover {
@@ -197,6 +234,26 @@ table tr:hover {
   margin-left: auto;
 }
 
+#txtBusca{
+  float:left;
+  background-color:transparent;
+  padding-left:5px; 
+  font-size:18px;
+  border:none;
+  height:32px;
+  width:191px;
+}
+
+#btnBusca{
+  border:none;
+  float:left;
+  height:32px;
+  border-radius:0 7px 7px 0;
+  width:70px;
+  font-weight:bold;
+  background:#5F9EA0;
+}
+
 #divBusca img{
   float:left;
 }
@@ -209,4 +266,28 @@ table tr:hover {
   margin-top: 20px;
   margin-right: auto;
   margin-left: auto;
+}
+
+.short-map{
+  width: 400px;
+  height: 400px;
+}
+
+.col-center-block {
+    float: none;
+    display: block;
+    margin: 0 auto;
+    /* margin-left: auto; margin-right: auto; */
+}
+
+#pendingTicketsBox button#acceptButton {
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+#pendingTicketsBox button#refuseButton {
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }

@@ -10,10 +10,11 @@
 <div id="logo" align="center">
   <img src="assets/Arq.png"/>
 </div>
-<h2 id="desc" align="center">Um inventário digital que busca facilitar o acesso à informação sobre todo o patrimônio construído na querida Campina Grande <br>O que está esperando? Faça parte da nossa comunidade e ajuda a preservar a história da nossa cidade</h2>
+<h2 class="texto2" align="center">Um inventário digital que busca facilitar o acesso à informação sobre todo o patrimônio construído na querida Campina Grande.</h2>
+<h2 class="texto2" align="center">O que está esperando? Faça parte da nossa comunidade e ajuda a preservar a história da nossa cidade.</h2>
 <br>
     <div id = "navbar" align="center">
-      <h2 id="padding" align="center"><a href="#" id="loginform" ng-click="viewDiv = true">Entre</a> | <a href="#" id="signform" ng-click="viewDiv = false">Cadastre-se</a></h2>
+      <h2 id="padding" class="texto" align="center"><a href="" id="loginform" ng-click="viewDiv = true">Entre</a> | <a href="" id="signform" ng-click="viewDiv = false">Cadastre-se</a></h2>
 
         <div class="login" align="center" ng-show="viewDiv">
           <div class="formholder">
@@ -27,7 +28,7 @@
                       <div class="input-group">
                           <input id="password" type="password" class="form-control" name="password" ng-model="password" placeholder="Senha" required="true">
                       </div>
-                      <p ng-show="error" style="color: red;">{{ error }}</p>
+                      <p ng-show="error" style="color: red; font-size: 15px;">{{ error }}</p>
                     <input class = "button" type = submit value = "entrar" ng-click = "login()"/>
                   </form>  
                </fieldset>
@@ -54,14 +55,13 @@
                       <div class="input-group">
                           <input id="password-repeat" type="password" class="form-control" name="password-repeated" ng-model="senhaRepetida" value="" placeholder="Repetir senha" required="true"/>
                       </div>
-                      <p ng-show="error" style="color: red;">{{ error }}</p>
+                      <p ng-show="error" style="color: red; font-size: 15px;">{{ error }}</p>
                     <input class = "button" type = submit value = "cadastrar" ng-click = "signUp()"/>
                   </form>  
                </fieldset>
             </div>
           </div>
         </div>
-                  <h3 id="padding" align="center">Ou você pode entrar sem cadastro <a ui-sref="home" id="here">aqui</a></h3>
 
   </div>
 

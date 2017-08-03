@@ -8,7 +8,7 @@
   
 <body>
   <div id='buildingBox' class='jumbotron'>
-    <h2>Detalhes Sobre o Patrimônio</h2>
+    <h2>Detalhamento do patrimônio</h2>
 
     <form name="formBuilding" id="formBuilding" class="form-horizontal" enctype="multipart/form-data">
       <h4>Nome</h4>
@@ -35,15 +35,18 @@
       <h4>Fotos</h4>
       <img style="width:70%;" data-ng-src="data:image/png;base64,{{patImg}}">
 
-      <div class='form-group'>
+      <div class='form-group' ng-show="userRole === 'admin'">
         <button type='button' ng-click="goToEditPage()" class='btn btn-primary'>Editar</button>
 
         <button type='button' ng-click="delete()" name='btn_remove' class='btn btn-danger'>Excluir</button>
-
-        <button type='button' ng-click='goToHomePage()' class='btn btn-warning'>Cancelar</button>
       </div>
+  <br>
+  <h4>Localização</h4>
+      <map ng-transclude class="short-map col-center-block" center="map.center" zoom="15"> 
+        <marker position="marker.position" decimals="marker.decimals" options="marker.options"></marker>
+      </map>
     </form>
-    
+
 	<h4>Informações Adicionais</h4>
 
 	<div ng-repeat="info in informations">

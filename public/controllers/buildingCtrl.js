@@ -3,6 +3,7 @@ var app = angular.module('app');
 app.controller('buildingCtrl', ['serverURL', '$scope', '$http', '$state', function(serverURL, $scope, $http, $state) {
 
 	var patrimony = $state.params;
+	var latlong = [];
 	$scope.name = $state.params.name;
 	$scope.year = $state.params.year;
 	$scope.style = $state.params.style;
@@ -12,8 +13,12 @@ app.controller('buildingCtrl', ['serverURL', '$scope', '$http', '$state', functi
 	$scope.address = $state.params.address;
 	$scope.informations = $state.params.additionalInformations;//["info1", "info2", "info3"]; //= state.params.algo que tiver no back;
 	$scope.patImg;
-
-
+	$scope.marker;
+	$scope.infowindow;
+	$scope.info = "";
+	$scope.userRole = sessionStorage.getItem('role');
+	$scope.googleMapsUrl= "https://maps.googleapis.com/maps/api/js?key=AIzaSyAkkCmNJhGmWTkcYRCwxTkyNy4Mx2PCnh0";
+	
 	$http({
 		method: 'GET',
 		url: serverURL.value + '/upload/image/'+$scope.name+'.jpg',
@@ -68,13 +73,41 @@ app.controller('buildingCtrl', ['serverURL', '$scope', '$http', '$state', functi
         }, function error(response){
             console.log(response.status);
         });
-
-//				$scope.informations.push($scope.info)
-				$scope.info = "";
-
-		//console.log($scope.informations);
-		//$state.go("building");
 	}
+
+	var geocoder = new google.maps.Geocoder();
+
+    var geocodeAddress = function(address, callback) {
+        var geocoder = new google.maps.Geocoder();
+        geocoder.geocode( { 'address': address}, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                callback(results[0].geometry.location);
+            } else {
+				console.log("Geocode was not successful for the following reason: " + status);
+				callback(status);
+            }
+        });
+	};
+	
+	geocodeAddress($scope.address+",Campina Grande, PB", function(location){
+		if(location == "ZERO_RESULTS"){
+			$scope.map = { center: [-7.2291, -35.8808] }; //Campina Grande
+		}else{
+			$scope.$apply(function() {
+				$scope.map = { 
+					center: [location.lat(), location.lng()]
+				};
+
+				$scope.marker = {
+					position: [location.lat(), location.lng()],
+					decimals: 4,
+					options: function() {
+						return { draggable: false };
+					}
+				}
+			});
+		}
+	});
 
 }]);
 

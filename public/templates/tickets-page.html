@@ -5,15 +5,43 @@
 	<title>Arquinventario</title>
 </head>
 <body>
-	<div id='ticketsBox' class='jumbotron'>
-		<h2>Lista de Tickets</h2>
+	<div id="ticketsBox" class="jumbotron">
+		<table class="table">
+	  		<tr>
+	  			<th>Tickets Pendentes</th>
+	  		</tr>
+	  		<tr ng-repeat="ticket in tickets | filter: {status: 'pending'}">
+	  			<td>
+		  			<div id="pendingTicketsBox" class="thumbnail">
+		  				<div class="caption">
+		  					<h2>{{ticket.title}}</h2>
+		  					<h3>{{ticket.address}}</h3>
+		  					<span>{{ticket.description}}</span>
+		  					<br>
+		  					<button id="acceptButton" type="button" class="btn btn-primary" ng-click="acceptTicket(ticket)">Aceitar</button>
+		  					<button id="refuseButton" type="button" class="btn btn-danger" ng-click="refuseTicket(ticket)">Recusar</button>
+		  				</div>
+		  			</div>
+		  		</td>
+	  		</tr>
+		</table>
+	</div>
 
+	<div id='ticketsBox' class='jumbotron'>
 		<table class='table'>
 	  		<tr>
-	  			<th>Lista de Tickets</th>
+	  			<th>Tickets Aprovados</th>
 	  		</tr>
-	  		<tr ng-repeat='ticket in tickets'>
-	  			<td>{{ticket.title}}</td>
+	  		<tr ng-repeat="ticket in tickets | filter: {status: 'accepted'}">
+				<td>
+		  			<div id="acceptedTicketsBox" class="thumbnail">
+		  				<div class="caption">
+		  					<h2>{{ticket.title}}</h2>
+		  					<h3>{{ticket.address}}</h3>
+		  					<span>{{ticket.description}}</span>
+		  				</div>
+		  			</div>
+		  		</td>
 	  		</tr>
 		</table>
 	</div>
