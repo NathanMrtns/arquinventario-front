@@ -15,12 +15,6 @@ body {
   background: #2c3e50;
 }
 
-@font-face {
-  font-family: "Cronus_Round";
-  src: url('Cronus_Round.eot') format('embedded-opentype'),
-  url('Cronus_Round.otf') format('opentype');
-}
-
 #wrap {
   margin: 0 auto 30px;
 }

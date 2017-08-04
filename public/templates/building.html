@@ -3,36 +3,49 @@
 <meta charset="utf-8">
 
 <head>
-	<title>Arquinventario</title>
+  <title>Arquinventario</title>
 </head>
   
 <body>
   <div id='buildingBox' class='jumbotron'>
-    <h2>Detalhamento do patrimônio</h2>
+    <h2><strong>Detalhamento do patrimônio</strong></h2>
 
     <form name="formBuilding" id="formBuilding" class="form-horizontal" enctype="multipart/form-data">
-      <h4>Nome</h4>
-      <h5>{{name}}</h5>
+        <p>
+            <strong>Nome:</strong>
+            <span>{{name}}</span>
+        </p>
 
-      <h4>Ano</h4>
-      <h5>{{year}}</h5>
+        <p>
+            <strong>Ano:</strong>
+            <span>{{year}}</span>
+        </p>
 
-      <h4>Estilo Arquitetônico</h4>
-      <h5>{{style}}</h5>
+        <p>
+            <strong>Estilo arquitetônico:</strong>
+            <span>{{style}}</span>
+        </p>
 
-      <h4>História</h4>
-      <h5>{{history}}</h5>
+        <p>
+            <strong>História:</strong>
+            <span>{{history}}</span>
+        </p>
+        <p>
+            <strong>Descrição:</strong>
+            <span>{{description}}</span>
+        </p>
 
-      <h4>Descrição</h4>
-      <h5>{{description}}</h5>
+        <p>
+            <strong>Tipologia:</strong>
+            <span>{{tipology}}</span>
+        </p>
 
-      <h4>Tipologia</h4>
-      <h5>{{tipology}}</h5>
+        <p>
+            <strong>Endereço:</strong>
+            <span>{{address}}</span>
+        </p>
 
-      <h4>Endereço</h4>
-      <h5>{{address}}</h5>
-
-      <h4>Fotos</h4>
+       <h2><strong>Fotos</strong></h2>
       <img style="width:70%;" data-ng-src="data:image/png;base64,{{patImg}}">
 
       <div class='form-group' ng-show="userRole === 'admin'">
@@ -46,18 +59,18 @@
         <marker position="marker.position" decimals="marker.decimals" options="marker.options"></marker>
       </map>
     </form>
+    
+  <h2><strong>Informações adicionais</strong></h2>
 
-	<h4>Informações Adicionais</h4>
+  <ul ng-repeat="info in informations">
+    <li style="font-size:20px;">
+    {{info}}
+    </li>
+  </ul>
 
-	<div ng-repeat="info in informations">
-		{{info}}
-		<br>
-	</div>
-
-	<br>
-    <div class="form-group"> <label for="comment">Adicione Informações:</label>  
-    	<textarea ng-model="info" class="form-control" rows="5" id="comment"></textarea>
-    </div>	
+    <div class="form-group"> <h2><strong>Adicione informações</strong></h2> 
+      <textarea ng-model="info" class="form-control" rows="5" id="comment"></textarea>
+    </div>  
      <button type='button' ng-click='sendComment()' class='btn btn-info'>Enviar</button>
     
  

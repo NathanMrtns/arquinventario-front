@@ -82,6 +82,13 @@
     background: rgba(255,255,255,0.2);
 }
 
+.sidebar-nav2 li a:hover {
+    text-decoration: none;
+    color: #ff5324;
+    background: rgba(255,255,255,0.2);
+}
+
+
 .sidebar-nav li a:active,
 .sidebar-nav li a:focus {
     text-decoration: none;
@@ -136,4 +143,31 @@
         position: relative;
         margin-right: 0;
     }
+}
+
+.sidebar-nav2 {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;    
+    overflow: hidden;
+    margin-bottom: 50px;
+    background-color: ecf0f1;
+}
+
+.sidebar-nav2 li {
+    float: right;
+}
+
+.sidebar-nav2 li a {
+    display: block;
+    color: 1c3c50;
+    text-align: center;
+    padding: 15px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    font-family: "Roboto", sans-serif;
+}
+
+.sidebar-nav2 li a:hover:not(.active) {
+    background-color: cdcdcd;
 }
