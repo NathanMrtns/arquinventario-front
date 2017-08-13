@@ -14,10 +14,9 @@
 	<div class="row">                
 		<h2> Pesquisar patrimônios no sistema </h2>
 	</div>
+
 	<br>        
-    <br>  
-	
-	<p ng-show="error" style="color: red;">{{ error }}</p> 
+
 	<form name="form" id="form" class="form-horizontal" enctype="multipart/form-data" style="font-size: 15px;">
 		<input type="text" class="form-control" ng-model="searchName" id="txtBusca" placeholder="Digite sua busca"/>
 
@@ -26,14 +25,21 @@
 		<input type="radio" name="vehicle" value="Tipologia" ng-checked="isTopology" ng-click="checkTipology()" > Tipologia <br>
 		<input type="radio" name="vehicle" value="Year" ng-checked="isYear" ng-click="checkYear()" > Ano 
 		<input type="radio" name="vehicle" value="Style" ng-checked="isStyle" ng-click="checkStyle()" > Estilo <br>
+
+		</br>
 		
-		<br>
+		<p ng-show="error" style="color: red;">{{ error }}</p> 
+
+		</br>
+
 		<div class="form-group">
 			<div class="col-sm-12 controls text-center">
-				 <button type="button" class="btn btn-primary"" ng-click="search()">Buscar</button
+				 <button type="button" class="btn btn-primary" ng-click="search()">Buscar</button>
 			</div>
 		</div>
+
 		<br><br><br>
+		
 		<div ng-show="isSearch">
 			<h2>Patrimônios Encontrados</h2>
 		<table class='table'>
@@ -42,9 +48,7 @@
 	  		</tr>
 		</table>
 	</form>
-
 </body>
-
 </html>
 
 

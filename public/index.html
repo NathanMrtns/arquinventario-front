@@ -11,129 +11,114 @@
 	<script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
 
 	<!-- CSS -->
-	<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
-	<!--<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap-theme.css">-->
-	<link rel="stylesheet" href="assets/style.css">
-    <link rel="stylesheet" href="assets/login.css">
-    <link rel="stylesheet" href="assets/simple-sidebar.css">
-    <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
+	<!-- <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css"> -->
+    <!-- <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap-theme.css"> -->
+    <link rel="stylesheet" href="assets/yetitheme.css">
+	<link rel="stylesheet" href="assets/style.css">  
+    <!-- <link rel="stylesheet" href="assets/login.css">   -->
+    <!-- <link rel="stylesheet" href="assets/simple-sidebar.css"> -->
+    <!-- <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'> -->
     
     <title>Arquinventario</title>
 </head>
 
-<body ng-controller="MenuCtrl as ctrl" style="background: url(assets/Background.png);">        
+<body ng-controller="MenuCtrl as ctrl">        
 <!-- Sidebar -->
-    <div id="wrapper2" ng-show="userRole !== 'admin'">
-        <div id="sidebar-wrapper2">
-            <ul class="sidebar-nav2">
-                <div ng-show="userRole === 'comum'">
-                <img src="img/Arquinventario.png" style="float:left; padding-top:15px; padding-left:15px; height:5%;"/>
-                <li>
-                    <a href="" ng-click="report()" >Denunciar</a>
-                </li>
-                <li>
-                    <a href="" ng-click="patrimonies()" >Patrimônios</a>
-                </li>
-                <li>
-                    <a href="" ng-click="search()" >Procurar</a>
-                </li>
-                <li>
-                    <a href="" >Sobre</a>
-                </li>
-                <li>
-                    <a href="" ng-click="institutes()" >Seções</a>
-                </li>
-                <li>
-                    <a href="" ng-click="addNewTicket()">Tickets</a>
-                </li>
-                <li>
-                    <a href="" ng-click="logout()" >Sair</a>
-                </li>
+    <div ng-show="userRole !== 'admin'">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Arquinventário</a>
                 </div>
 
-                <div ng-show="userRole === null">
-                <img src="img/Arquinventario.png" style="float:left; padding-top:15px; padding-left:15px; height:5%;"/>
-                <li>
-                    <a href="" ng-click="report()" >Denunciar</a>
-                </li>
-                <li>
-                    <a href="" ng-click="patrimonies()" >Patrimônios</a>
-                </li>
-                <li>
-                    <a href="" ng-click="search()" >Procurar</a>
-                </li>
-                <li>
-                    <a href="" >Sobre</a>
-                </li>
-                <li>
-                    <a href="" ng-click="institutes()" >Seções</a>
-                </li>
-                <li>
-                    <a href="" ng-click="addNewTicket()">Tickets</a>
-                </li>
-                <li>
-                    <a href="" ng-click="login()" >Entrar</a>
-                </li>
-                </div>
-            </ul>
-        </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="" ng-click="patrimonies()">Patrimônios</a></li>
+                    <li><a href="" ng-click="report()">Denunciar</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Não encontrou um patrimônio?<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                        <li><a href="" ng-click="addNewTicket()">Sugerir um patrimônio</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="" ng-click="institutes()">Orgãos</a></li>
+                    <li><a href="" ng-click="about()">Sobre</a></li>
+                    <li>
+                        <a href="" ng-click="login()" ng-show="userRole === null" >Entrar</a>
+                        <a href="" ng-click="logout()" ng-show="userRole === 'comum'" >Sair</a>
+                    </li>
+                </ul>
+                <!-- <form class="navbar-form navbar-left">
+                    <div class="form-group">
+                    <input type="text" class="form-control" ng-model="searchValue" placeholder="Procurar">
+                    </div>
+                    <button ng-click="search()" class="btn btn-default btn-xs">Procurar</button>
+                </form> -->
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
     </div>
 
-    <div id="wrapper" class="toggled" ng-show="userRole === 'admin'">
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-              <!-- <li class="sidebar-brand">
-                    <a href="">
-                        <div class="menu-icon"> 
-                            <span class="glyphicon glyphicon-menu-hamburger" onclick="toggle()"></span>
-                        </div>
-                    </a> 
-                </li>-->
-                <h2>&#013</h2>
-                <li>
-                    <a href="" ng-click="listOfReports()" onClick="toggle()">Denúncias</a>
+    <div ng-show="userRole === 'admin'">
+        <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Arquinventário</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Patrimônios<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                    <li><a href="" ng-click="patrimonies()">Listar</a></li>
+                    <li><a href="" ng-click="addPatrimony()">Criar</a></li>
+                    </ul>
+                </li>
+                <li><a href="" ng-click="listOfReports()">Denúncias</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sugestões<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                    <li><a href="" ng-click="addNewTicket()">Criar</a></li>
+                    <li><a href="" ng-click="tickets()">Listar</a></li>
+                    </ul>
                 </li>
                 <li>
-                    <a data-toggle="collapse" href="#collapse1">Patrimônios</a>
+                    <a href="">Usuários</a>
                 </li>
-                <ul id="collapse1" class="panel-collapse collapse">
-                    <li><a href="" ng-click="addPatrimony()" style="font-size: 17px; padding-left: 15px;">Criar</a></li>
-                    <li><a href="" ng-click="patrimonies()" style="font-size: 17px; padding-left: 15px;">Listar</a></li>
-                </ul>
-                <hr>
-                <li>
-                    <a href="" ng-click="search()" onClick="toggle()">Procurar</a>
-                </li>
-                <li>
-                    <a href="" onClick="toggle()">Sobre</a>
-                </li>
-                <hr>
-                <li>
-                    <a href="" ng-click="institutes()" onClick="toggle()">Seções</a>
-                </li>
-                <li>
-                    <a data-toggle="collapse" href="#collapse2">Tickets</a>
-                </li>
-                <ul id="collapse2" class="panel-collapse collapse">
-                    <li><a href="" ng-click="addNewTicket()" style="font-size: 17px; padding-left: 15px;">Criar</a></li>
-                    <li><a href="" ng-click="tickets()" style="font-size: 17px; padding-left: 15px;">Listar</a></li>
-                </ul>
-                <hr>
-                <li>
-                    <a href="" onClick="toggle()">Usuários</a>
-                </li>
-                <li>
-                    <a href="" ng-click="logout()" onClick="toggle()">Sair</a>
-                </li>
+                <li><a href="" ng-click="logout()">Sair</a><li>
+
             </ul>
-        </div>
-        <!-- /#sidebar-wrapper -->
+            <!-- <form class="navbar-form navbar-left">
+                <div class="form-group">
+                <input type="text" class="form-control" placeholder="Procurar">
+                </div>
+                <button type="submit" class="btn btn-default btn-xs">Procurar</button>
+            </form> -->
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+        </nav>
+    </div>
 
     </div>
 
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
+        <div>
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
@@ -142,7 +127,7 @@
                 </div>
             </div>
         </div>
-        <!-- /#page-content-wrapper -->
+
 </body>
     <script src="controllers/controller.js"></script>
     <script src="controllers/newBuildingController.js"></script>
@@ -157,7 +142,7 @@
     <script src="controllers/addTicketCtrl.js"></script>
     <script src="controllers/ticketsPageCtrl.js"></script>
 
-<!--
+
     <script>
         function toggle(){
             $("#wrapper").toggleClass("toggled");
@@ -172,5 +157,5 @@
             }
         }
     </script>
--->
+
 </html>

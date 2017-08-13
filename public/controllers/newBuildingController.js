@@ -15,7 +15,10 @@ app.controller('newBuildingController', ['serverURL', '$scope', '$http', '$state
 	$scope.types = ["Comercial Misto", "Institucional", "Religioso", "Residencial"];
 
 	$scope.submit = function(file){
-		console.log($scope.address);
+		var imagePath;
+		if (file != undefined) {
+			imagePath = $scope.name.replace(/ /g,'')+file.name;
+		}
 		data =  {
 				"name":$scope.name,
 				"year": $scope.year,
@@ -23,7 +26,8 @@ app.controller('newBuildingController', ['serverURL', '$scope', '$http', '$state
 				"history": $scope.history,
 				"description": $scope.description,
 				"tipology": $scope.tipology,
-				"address" : $scope.address
+				"address" : $scope.address,
+				"imagePath" : imagePath
 			}
 		
 		$http({
@@ -31,12 +35,14 @@ app.controller('newBuildingController', ['serverURL', '$scope', '$http', '$state
 			url: serverURL.value+'/patrimony',
 			data: data
 		}).then(function(response){
-			Files.upload(file, $scope.name).then(function (data) {
-                console.log('Uploaded successfully');
-            }).catch(function(){
-                console.log('Upload failed');
-            });
-			$state.go("home");
+			if (Files != undefined){
+				Files.upload(file, imagePath).then(function (data) {
+					console.log('Uploaded successfully');
+				}).catch(function(){
+					console.log('Upload failed');
+				});
+				$state.go("home");
+			}
 		});
 	}
 
@@ -44,20 +50,9 @@ app.controller('newBuildingController', ['serverURL', '$scope', '$http', '$state
 		$state.go("home");
 	}
 
-	$scope.upload = function (file, filename) {
-        if (file) {
-			console.log("in")
-            Files.upload(file, $scope.name).then(function (data) {
-                console.log('Uploaded successfully');
-            }).catch(function(){
-                console.log('Upload failed');
-            });
-        }
-    };
-
 }]);
 
-app.controller('editBuildingController', ['serverURL', '$scope', '$http', '$state', function(serverURL, $scope, $http, $state) {
+app.controller('editBuildingController', ['serverURL', '$scope', '$http', '$state','Files', function(serverURL, $scope, $http, $state, Files) {
 	
 	var patrimony = $state.params;
 
@@ -68,8 +63,16 @@ app.controller('editBuildingController', ['serverURL', '$scope', '$http', '$stat
 	$scope.description = $state.params.description;
 	$scope.tipology = $state.params.tipology;
 	$scope.address = $state.params.address;
-	
-	$scope.submit = function(){
+	$scope.imagePath =
+			console.log($state.params.imagePath);
+
+	$scope.submit = function(file){
+		var imagePath; 
+		if (file != undefined && $scope.name.replace(/ /g,'')+file.name != $state.params.imagePath){
+			imagePath = $scope.name.replace(/ /g,'')+file.name
+		} else {
+			imagePath = $state.params.imagePath;
+		}
 		data =  {
 				"name":$scope.name,
 				"year": $scope.year,
@@ -77,7 +80,8 @@ app.controller('editBuildingController', ['serverURL', '$scope', '$http', '$stat
 				"history": $scope.history,
 				"description": $scope.description,
 				"tipology": $scope.tipology,
-				"address" : $scope.address
+				"address" : $scope.address,
+				"imagePath": imagePath
 			}
 		
 		$http({
@@ -85,7 +89,14 @@ app.controller('editBuildingController', ['serverURL', '$scope', '$http', '$stat
 			url: serverURL.value+'/patrimony/edit/'+patrimony._id,
 			data: data
 		}).then(function(response){
-			$state.go("home");
+			if (Files != undefined){
+				Files.upload(file, imagePath).then(function (data) {
+					console.log('Uploaded successfully');
+				}).catch(function(){
+					console.log('Upload failed');
+				});
+				$state.go("home");
+			}
 		});
 	}
 

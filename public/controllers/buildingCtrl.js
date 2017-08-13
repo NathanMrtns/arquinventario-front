@@ -12,16 +12,16 @@ app.controller('buildingCtrl', ['serverURL', '$scope', '$http', '$state', functi
 	$scope.tipology = $state.params.tipology;
 	$scope.address = $state.params.address;
 	$scope.informations = $state.params.additionalInformations;//["info1", "info2", "info3"]; //= state.params.algo que tiver no back;
-	$scope.patImg;
+	$scope.imagePath = $state.params.imagePath;
 	$scope.marker;
 	$scope.infowindow;
 	$scope.info = "";
 	$scope.userRole = sessionStorage.getItem('role');
 	$scope.googleMapsUrl= "https://maps.googleapis.com/maps/api/js?key=AIzaSyAkkCmNJhGmWTkcYRCwxTkyNy4Mx2PCnh0";
-	
+
 	$http({
 		method: 'GET',
-		url: serverURL.value + '/upload/image/'+$scope.name+'.jpg',
+		url: serverURL.value + '/upload/image/'+$scope.imagePath,
 		responseType: 'arraybuffer'
 	}).then(function success(response){
         if(response.status == 200){

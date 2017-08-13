@@ -6,17 +6,17 @@
 </head>
 <body>
   <div id='addNewBuildingBox' class='jumbotron'>
-    <h2 id='mainHeader'>Cadastrar Novo Patrimônio</h2>
+    <h2 id='mainHeader'>Editar Patrimônio</h2>
 
     <form id="formAddNewBuilding" name="formAddNewBuilding" class="form-horizontal" enctype="multipart/form-data" method="POST">
       <div class="form-group">
         <input type="text" class="form-control" placeholder="Nome do Patrimônio*" name="name" id='name' ng-model="name" ng-required="true">
-        <p ng-show="formAddNewBuilding.name.$invalid && formAddNewBuilding.name.$dirty" class=help-block>Por favor, preencher o campo do nome.</p>
+        <p ng-show="formAddNewBuilding.name.$invalid && formAddNewBuilding.name.$dirty" class=help-block>Por favor, preencher o campo do nome.</p>        
       </div>
 
       <div class="form-group">
         <input type="text" class="form-control" placeholder="Endereço*" name="address" id='address' ng-model="address" ng-required="true">
-        <p ng-show="formAddNewBuilding.address.$invalid && formAddNewBuilding.address.$dirty" class=help-block>Por favor, preencher o campo do endereço.</p>
+        <p ng-show="formAddNewBuilding.address.$invalid && formAddNewBuilding.address.$dirty" class=help-block>Por favor, preencher o campo do endereço.</p>        
       </div>
 
       <div class="form-group">
@@ -24,26 +24,24 @@
       </div>
 
       <div class="form-group">
-        <select ng-model='style' class="form-control"  name="style" ng-required="true">
-          <option value='' selected hidden>Estilo Arquitetônico*</option>
-          <option ng-repeat="style in styles" value="{{style}}">{{style}}</option>
+        <select ng-model='style' class="form-control" ng-options='style for style in styles' name="style" ng-required="true">
+          <option value=''>Estilo Arquitetônico*</option>
         </select>
 
-        <p ng-show="formAddNewBuilding.style.$invalid && formAddNewBuilding.style.$dirty" class=help-block>Por favor, preencher o campo do estilo arquitetônico.</p>
+        <p ng-show="formAddNewBuilding.style.$invalid && formAddNewBuilding.style.$dirty" class=help-block>Por favor, preencher o campo do estilo arquitetônico.</p>        
       </div>
 
       <div class="form-group">
-        <textarea type="text" class="form-control" placeholder="História do Patrimônio" name='history' id='history' ng-model='history'></textarea>
+        <input type="text" class="form-control" placeholder="História do Patrimônio" name='history' id='history' ng-model='history'>
       </div>
 
       <div class="form-group">
-        <textarea type="text" class="form-control" placeholder="Características do Patrimônio" name='description' id='description' ng-model='description'></textarea>
+        <input type="text" class="form-control" placeholder="Características do Patrimônio" name='description' id='description' ng-model='description'>
       </div>
 
       <div class="form-group">
-        <select ng-model='tipology' class="form-control" name="tipology" ng-required="true">
-          <option value='' selected hidden>Tipologia*</option>
-          <option ng-repeat="type in types" value="{{type}}">{{type}}</option>
+        <select ng-model='tipology' class="form-control" ng-options='type for type in types' name="tipology" ng-required="true">
+          <option value=''>Tipologia*</option>
         </select>
 
         <p ng-show="formAddNewBuilding.tipology.$invalid && formAddNewBuilding.tipology.$dirty" class=help-block>Por favor, preencher o campo da tipologia.</p>
@@ -52,10 +50,10 @@
       <div class="form-group" style="font-size:15px">
         Foto:
         <br>
-        <input type="file" ngf-select ng-model="file" name="file"
+        <input type="file" ngf-select ng-model="file" name="file"    
              accept="image/*" ngf-max-size="2MB"
              ngf-model-invalid="errorFile">
-      </div>
+      </div> 
       <input type="hidden" class="form-control" placeholder="Fotos" name='photos' id='photos' ng-model='photos'>
 
       <div class='form-group'>

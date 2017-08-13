@@ -1,5 +1,5 @@
 var app = angular.module('app', ['ui.router', 'ngFileUpload', 'ngMaps']);
-app.value('serverURL', { value: 'https://arq-back.herokuapp.com' });
+app.value('serverURL', { value: 'http://arq-back.herokuapp.com/' });
 
 app.config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise("/home");
@@ -31,9 +31,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
             description: null,
             history: null,
             tipology: null,
-            address:null
+            address:null, 
+            imagePath:null
         },
-        templateUrl : "templates/add-new-building.html",
+        templateUrl : "templates/edit-building.html",
         controller: "editBuildingController"
     })
     .state("building",{
@@ -47,7 +48,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
             history: null,
             tipology: null,
             address:null,
-            additionalInformations: null
+            additionalInformations: null,
+            imagePath:null
         },
         templateUrl : "templates/building.html",
         controller: "buildingCtrl"
@@ -92,7 +94,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
         templateUrl: 'templates/tickets-page.html',
         controller:"ticketsPageCtrl"
     })
-
+    .state('aboutPage', {
+        url: "/aboutPage",
+        templateUrl: 'templates/about.html'
+    })
 });
 
 app.controller('MenuCtrl', ['serverURL', '$rootScope', '$scope', '$http', '$state', function(serverURL,$rootScope , $scope, $http, $state) {
@@ -128,10 +133,6 @@ app.controller('MenuCtrl', ['serverURL', '$rootScope', '$scope', '$http', '$stat
     $scope.listOfReports = function() {
         $state.go("complaintsPage");
     }
-
-    $scope.search = function(){
-        $state.go("searchBuildings");
-    }
     
     $scope.addNewTicket = function(){
         $state.go("addNewTicket");
@@ -140,6 +141,11 @@ app.controller('MenuCtrl', ['serverURL', '$rootScope', '$scope', '$http', '$stat
     $scope.tickets = function(){
         $state.go("ticketsPage");
     }
+
+    $scope.about = function(){
+        $state.go("aboutPage");
+    }
+
 
     $scope.logout = function(){
         sessionStorage.clear();

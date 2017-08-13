@@ -19,8 +19,6 @@ app.controller('addTicketCtrl', ['serverURL', '$scope', '$http', '$state', funct
 				"status":  $scope.status
 			}
 		}).then(function(response) {
-			console.log("test");
-			console.log(response);
 			$state.go("home");
 		})
 	}

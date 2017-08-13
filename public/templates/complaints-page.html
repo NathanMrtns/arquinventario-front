@@ -5,13 +5,16 @@
 	<title>Arquinventario</title>
 </head>
 <body>
-	<div id='complaintsBox' class='jumbotron'>
-		<h2>Denúncias</h2>
-		<table class='table'>
-	  		<tr ng-repeat='complaint in complaints'>
-	  			<td ng-click='goToComplaintPage(complaint)'><h3>{{complaint.title}}</h3></td>
-	  		</tr>
-		</table>
+	<div class='jumbotron'>
+		<h2 align="center">Denúncias</h2>
+		<div id="card" ng-repeat="complaint in complaints" class="thumbnail">
+			<div class="caption">
+				<h2><strong>{{complaint.title}}</strong></h2>
+				<p><strong>Endereço:</strong> {{complaint.address}}</p>
+				<p><strong>Descrição:</strong> {{complaint.description | limitTo:200}}{{patrimony.history.length > 200 ? '...' : ''}}</p>
+				<a href="" ng-click="goToComplaintPage(complaint)"> mais detalhes </a>
+			</div>
+		</div>
 	</div>
 </body>
 </html>

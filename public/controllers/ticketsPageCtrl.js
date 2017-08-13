@@ -15,10 +15,23 @@ app.controller('ticketsPageCtrl', ['serverURL', '$scope', '$http', '$state', fun
 	getAllTickets();
 
 	$scope.acceptTicket = function(ticket) {
-		ticket.status = "accepted";
+		//console.log(ticket);
+		$http({
+			method: 'PUT',
+			url: serverURL.value + '/ticket/'+ticket._id
+		}).then(function(response){
+			console.log(response);
+			ticket.status = "accepted"
+		})
 	}
 
 	$scope.refuseTicket = function(ticket) {
-		ticket.status = "refused";
+		//console.log(ticket);
+		$http({
+			method: 'DELETE',
+			url: serverURL.value + '/ticket/'+ticket._id
+		}).then(function(response){
+			$state.reload();
+		}) 
 	}
 }]);

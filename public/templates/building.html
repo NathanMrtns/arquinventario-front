@@ -7,7 +7,7 @@
 </head>
   
 <body>
-  <div id='buildingBox' class='jumbotron'>
+  <div id='buildingBox' class='thumbnail'>
     <h2><strong>Detalhamento do patrimônio</strong></h2>
 
     <form name="formBuilding" id="formBuilding" class="form-horizontal" enctype="multipart/form-data">
@@ -45,20 +45,15 @@
             <span>{{address}}</span>
         </p>
 
-       <h2><strong>Fotos</strong></h2>
-      <img style="width:70%;" data-ng-src="data:image/png;base64,{{patImg}}">
+       <h2><strong>Foto</strong></h2>
+        <img style="width:70%;" class="col-center-block" data-ng-src="data:image/png;base64,{{patImg}}">
 
-      <div class='form-group' ng-show="userRole === 'admin'">
-        <button type='button' ng-click="goToEditPage()" class='btn btn-primary'>Editar</button>
-
-        <button type='button' ng-click="delete()" name='btn_remove' class='btn btn-danger'>Excluir</button>
-      </div>
-  <br>
-  <h4>Localização</h4>
-      <map ng-transclude class="short-map col-center-block" center="map.center" zoom="15"> 
-        <marker position="marker.position" decimals="marker.decimals" options="marker.options"></marker>
-      </map>
-    </form>
+        <br>
+        <h4>Localização</h4>
+         <map ng-transclude class="short-map col-center-block" center="map.center" zoom="15"> 
+            <marker position="marker.position" decimals="marker.decimals" options="marker.options"></marker>
+          </map>
+      </form>
     
   <h2><strong>Informações adicionais</strong></h2>
 
@@ -75,5 +70,10 @@
     
  
   </div>
+    <div class='form-group' style="padding-left: 45%" ng-show="userRole === 'admin'">
+        <button type='button' ng-click="goToEditPage()" class='btn btn-primary'>Editar</button>
+
+        <button type='button' ng-click="delete()" name='btn_remove' class='btn btn-danger'>Excluir</button>
+      </div>
 </body>
 </html>

@@ -7,19 +7,28 @@
 </head>
   
 <body>
-  <div id='complaintsBox' class='jumbotron'>
-    <h2>Detalhamento da Denúncia</h2>
-<br>
-    <form name="formBuilding" id="formBuilding" class="form-horizontal" enctype="multipart/form-data">
-      
-      <h4>Title</h4>
-      <h5>{{title}}</h5>
+  <div id='card' class='jumbotron'>
+    <h2><strong>Detalhamento da Denúncia</strong></h2>
 
-      <h4>Local</h4>
-      <h5>{{address}}</h5>
+    </br>
 
-      <h4>Descrição</h4>
-      <h5>{{description}}</h5>
+    <form name="formComplaint" id="formComplaint" class="form-horizontal" enctype="multipart/form-data">
+      <p>
+        <strong>Título:</strong>
+        <span>{{title}}</span>
+      </p>
+
+      <p>
+        <strong>Local:</strong>
+        <span>{{address}}</span>
+      </p>
+
+      <p>
+        <strong>Descrição:</strong>
+        <span>{{description}}</span>
+      </p>
+
+      </br>
 
       <div class='form-group'>
         <button type='button' ng-click='goToComplaintsPage()' class='btn btn-warning'>Voltar</button>
@@ -28,3 +37,30 @@
   </div>
 </body>
 </html>
+
+<!--
+  <br>
+  <h4>Localização</h4>
+      <map ng-transclude class="short-map col-center-block" center="map.center" zoom="15"> 
+        <marker position="marker.position" decimals="marker.decimals" options="marker.options"></marker>
+      </map>
+    </form>
+    
+  <h2><strong>Informações adicionais</strong></h2>
+
+  <ul ng-repeat="info in informations">
+    <li style="font-size:20px;">
+    {{info}}
+    </li>
+  </ul>
+
+    <div class="form-group"> <h2><strong>Adicione informações</strong></h2> 
+      <textarea ng-model="info" class="form-control" rows="5" id="comment"></textarea>
+    </div>  
+     <button type='button' ng-click='sendComment()' class='btn btn-info'>Enviar</button>
+    
+ 
+  </div>
+</body>
+</html>
+-->
