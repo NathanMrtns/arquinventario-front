@@ -1,5 +1,5 @@
 var app = angular.module('app', ['ui.router', 'ngFileUpload', 'ngMaps']);
-app.value('serverURL', { value: 'http://arq-back.herokuapp.com/' });
+app.value('serverURL', { value: 'http://arq-back.herokuapp.com' });
 
 app.config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise("/home");
