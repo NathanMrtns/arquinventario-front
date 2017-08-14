@@ -53,8 +53,8 @@
          <map ng-transclude class="short-map col-center-block" center="map.center" zoom="15"> 
             <marker position="marker.position" decimals="marker.decimals" options="marker.options"></marker>
           </map>
-      </form>
-    
+        </form>
+
   <h2><strong>Informações adicionais</strong></h2>
 
   <ul ng-repeat="info in informations">
@@ -73,7 +73,9 @@
     <div class='form-group' style="padding-left: 45%" ng-show="userRole === 'admin'">
         <button type='button' ng-click="goToEditPage()" class='btn btn-primary'>Editar</button>
 
-        <button type='button' confirmed-click="delete()" ng-confirm-click="Realmente deseja excluir o patrimônio?" name='btn_remove' class='btn btn-danger'>Excluir</button>
+        <button type='button' ng-click="delete()" ng-confirm-click="Realmente deseja excluir o patrimônio?" name='btn_remove' class='btn btn-danger'>Excluir</button>
       </div>
+
+
 </body>
 </html>
