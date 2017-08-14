@@ -98,6 +98,17 @@ app.config(function($stateProvider, $urlRouterProvider) {
         url: "/aboutPage",
         templateUrl: 'templates/about.html'
     })
+    .state('accountPage', {
+        url: "/accountPage",
+        templateUrl: "templates/account.html",
+        controller: 'accountCtrl'
+    })
+
+    .state('usersPage', {
+        url: "/usersPage",
+        templateUrl: "templates/users.html",
+        controller: 'usersCtrl'
+    })
 });
 
 app.controller('MenuCtrl', ['serverURL', '$rootScope', '$scope', '$http', '$state', function(serverURL,$rootScope , $scope, $http, $state) {
@@ -133,6 +144,18 @@ app.controller('MenuCtrl', ['serverURL', '$rootScope', '$scope', '$http', '$stat
     $scope.listOfReports = function() {
         $state.go("complaintsPage");
     }
+
+    $scope.search = function(){
+        $state.go("searchBuildings");
+    }
+
+    $scope.about = function(){
+        $state.go("aboutPage");
+    }
+
+    $scope.account = function(){
+        $state.go("accountPage");
+    }
     
     $scope.addNewTicket = function(){
         $state.go("addNewTicket");
@@ -142,10 +165,9 @@ app.controller('MenuCtrl', ['serverURL', '$rootScope', '$scope', '$http', '$stat
         $state.go("ticketsPage");
     }
 
-    $scope.about = function(){
-        $state.go("aboutPage");
+    $scope.users = function(){
+        $state.go("usersPage");
     }
-
 
     $scope.logout = function(){
         sessionStorage.clear();

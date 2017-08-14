@@ -56,7 +56,6 @@ app.controller('buildingCtrl', ['serverURL', '$scope', '$http', '$state', functi
         });
 	}
 
-
 	$scope.sendComment = function(){
 		$http({
 			method: 'PUT',
@@ -110,7 +109,6 @@ app.controller('buildingCtrl', ['serverURL', '$scope', '$http', '$state', functi
 	});
 
 }]);
-
 
   function _arrayBufferToBase64(buffer) {
     var binary = '';

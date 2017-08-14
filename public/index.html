@@ -41,6 +41,7 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
+                    <li><a href="" ng-click="account()" ng-show="userRole === 'comum'">Conta</a></li>
                     <li><a href="" ng-click="patrimonies()">Patrimônios</a></li>
                     <li><a href="" ng-click="report()">Denunciar</a></li>
                     <li class="dropdown">
@@ -100,7 +101,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="">Usuários</a>
+                    <a href="" ng-click="users()">Usuários</a>
                 </li>
                 <li><a href="" ng-click="logout()">Sair</a><li>
 
@@ -141,6 +142,8 @@
     <script src="controllers/uploadService.js"></script>
     <script src="controllers/addTicketCtrl.js"></script>
     <script src="controllers/ticketsPageCtrl.js"></script>
+    <script src="controllers/usersCtrl.js"></script>
+    <script src="controllers/accountCtrl.js"></script>
 
 
     <script>

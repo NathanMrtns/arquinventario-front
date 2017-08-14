@@ -97,8 +97,6 @@ hr {
   margin-top: 20px;
   margin-right: auto;
   margin-left: auto;
-  border-radius: 10px !important;
-  background: #ecf0f1;
 }
 
 #addNewBuildingBox > h2 {
@@ -129,7 +127,6 @@ hr {
   margin-top: 20px;
   margin-right: auto;
   margin-left: auto;
-  background: #ecf0f1;
 }
 
 #homeBox > h2 {
@@ -184,7 +181,6 @@ table tr:hover {
   margin-top: 20px;
   margin-right: auto;
   margin-left: auto;
-  background: #ecf0f1;
 }
 
 #addNewComplaintBox > h2 {
@@ -208,7 +204,6 @@ table tr:hover {
   margin-top: 20px;
   margin-right: auto;
   margin-left: auto;
-  background: #ecf0f1;
 }
 
 #divBusca{

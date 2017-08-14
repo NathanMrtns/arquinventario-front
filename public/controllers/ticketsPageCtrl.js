@@ -1,15 +1,36 @@
 var app = angular.module('app');
 
-app.controller('ticketsPageCtrl', ['serverURL', '$scope', '$http', '$state', function(serverURL, $scope, $http, $state) {
-	$scope.tickets = "";
+app.controller('ticketsPageCtrl', ['serverURL', '$scope', '$http', '$state', 'Files', function(serverURL, $scope, $http, $state, Files) {
+	$scope.tickets = [];
 
 	getAllTickets = function() {
 		$http({
 			method: 'GET',
 			url: serverURL.value + '/ticket'
 		}).then(function(response){
-			$scope.tickets = response.data;
-		}) 
+			response.data.forEach(function(ticket){
+				getImage(ticket.imagePath, function(image){
+					ticket.image = image;
+				});
+				$scope.tickets.push(ticket);
+			});
+		});
+	}
+
+	getImage = function(imagePath, callback){
+		$http({
+			method: 'GET',
+			url: serverURL.value + '/upload/image/'+imagePath,
+			responseType: 'arraybuffer'
+		}).then(function success(response){
+			if(response.status == 200){
+				callback(_arrayBufferToBase64(response.data));
+			} else {
+				alert('Houve um erro!');
+			}
+		}, function error(response){
+			console.log(response.status);
+		});
 	}
 
 	getAllTickets();
@@ -35,3 +56,13 @@ app.controller('ticketsPageCtrl', ['serverURL', '$scope', '$http', '$state', fun
 		}) 
 	}
 }]);
+
+  function _arrayBufferToBase64(buffer) {
+    var binary = '';
+    var bytes = new Uint8Array(buffer);
+    var len = bytes.byteLength;
+    for (var i = 0; i < len; i++) {
+      binary += String.fromCharCode(bytes[i]);
+    }
+    return window.btoa(binary);
+  }

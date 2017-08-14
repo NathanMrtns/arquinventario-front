@@ -7,10 +7,9 @@
 </head>
   
 <body>
-  <div id='card' class='jumbotron'>
+  <div id='card' class='thumbnail'>
     <h2><strong>Detalhamento da Denúncia</strong></h2>
 
-    </br>
 
     <form name="formComplaint" id="formComplaint" class="form-horizontal" enctype="multipart/form-data">
       <p>
@@ -27,14 +26,11 @@
         <strong>Descrição:</strong>
         <span>{{description}}</span>
       </p>
-
-      </br>
-
-      <div class='form-group'>
-        <button type='button' ng-click='goToComplaintsPage()' class='btn btn-warning'>Voltar</button>
-      </div>
     </form>
   </div>
+      <div class='form-group' style=" width: 50px; margin: 0 auto" ng-show="userRole === 'admin'">
+        <button type='button' confirmed-click="delete()" ng-confirm-click="Realmente deseja excluir a denúncia?" name='btn_remove' class='btn btn-danger'>Excluir</button>
+      </div>
 </body>
 </html>
 

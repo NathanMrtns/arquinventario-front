@@ -1,0 +1,58 @@
+<!DOCTYPE>
+<html ng-app="app">
+<meta charset="utf-8">
+<head>
+	<title>Arquinventario</title>
+</head>
+<body>
+<h3 align="center">Abaixo segue a opção de cadastro de um novo administrador</h3>
+<br>
+	<div class="jumbotron" style="height: 425px">		
+	<h2 align="center" style="margin: 0 auto;">Cadastrar administrador</h2>
+	<br>
+		<form name="formHome" id="formHome" class="form-horizontal" enctype="multipart/form-data" style="font-size: 15px; width: 800px; margin: 0 auto;">
+			 <input id="name" type="text" class="form-control" name="nome" ng-model="nome" value="" placeholder="Nome completo" required="true"/>
+			 <br>
+			 <input id="user" type="email" class="form-control" name="email" ng-model="email2" value="" placeholder="Email" required="true"/>
+			 <br>
+			 <input id="password" type="password" class="form-control" name="password" ng-model="senha" placeholder="Senha" required="true">
+			 <br>
+			 <input id="password-repeat" type="password" class="form-control" name="password-repeated" ng-model="senhaRepetida" value="" placeholder="Repetir senha" required="true"/>
+			 <p ng-show="error" style="color: red; font-size: 15px;">{{ error }}</p>
+			<br>
+			<div class="form-group" style="margin: 0 auto;">
+				<button type="button" class="btn btn-primary" ng-click="signAdmin()">Criar</button>
+				<button type="button" class="btn btn-primary" ng-click="clean()">Limpar</button>
+			</div>
+		</form>
+	</div>
+
+	<br>
+
+	<h3 align="center">Abaixo segue uma lista dos usuários cadastrados no site</h3>
+	<br>
+	<div class='jumbotron'>
+
+		<h2 align="center">Administradores</h2>
+
+		<div id="card" ng-repeat="user in users" class="thumbnail" ng-show="user.role ==='admin'">
+			<div class="caption">
+				<p><strong>Nome:</strong> {{user.name}}</p>
+				<p><strong>Email:</strong> {{user.email}}</p>
+
+			</div>
+		</div>
+
+		<h2 align="center">Usuários comuns</h2>
+
+		<div id="card" ng-repeat="user in users" class="thumbnail" ng-show="user.role === 'comum'">
+			<div class="caption">
+				<p><strong>Nome: </strong>{{user.name}}</p>
+				<p><strong>Email: </strong>{{user.email}}</p>
+
+			</div>
+		</div>
+
+	</div>
+</body>
+</html>
