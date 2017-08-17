@@ -3,7 +3,7 @@ var app = angular.module('app');
 app.controller('homeCtrl', ['serverURL', '$scope', '$http', '$state', function(serverURL, $scope, $http, $state) {
 	type = "name";
 	$scope.isName = 1;
-	$scope.patrimonies = "";
+	$scope.patrimonies = [];
 
 	getAllPatrimonies = function() {
 		$http({

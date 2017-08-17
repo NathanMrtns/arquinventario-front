@@ -6,6 +6,35 @@
 	<title>Arquinventario</title>
 </head>
 <body>
+<div id='buildingBox' class="thumbnail">
 
+    <form name="formBuilding" id="formBuilding" class="form-horizontal" enctype="multipart/form-data">
+      <h2 align="center"><strong>Minha conta</strong></h2>
+      <br>
+      <p>
+        <strong>Nome:</strong>
+        <span>{{user.name}}</span>
+      </p>
+      <input id="name" type="text" class="form-control" name="nome" ng-model="nome" value="" placeholder="{{user.name}}" required="true"/>
+      <br>
+      <p>
+        <strong>Email:</strong>
+        <span>{{user.email}}</span>
+      </p>
+      <input id="user" type="email" class="form-control" name="email" ng-model="email2" value="" placeholder="{{user.email}}" required="true"/>
+      <br>
+      <p>
+        <strong>Mudar senha:</strong>
+      </p>
+      <input id="password" type="password" class="form-control" name="password" ng-model="senha" placeholder="Nova senha" required="true" style="margin-bottom: 10px;">
+      <input id="password-repeat" type="password" class="form-control" name="password-repeated" ng-model="senhaRepetida" value="" placeholder="Repetir senha" required="true"/>
+      <p ng-show="error" style="color: red; font-size: 15px;">{{ error }}</p>
+      <div class='form-group' align="center">
+        <button type='button' ng-click ="update()" name='btn_remove' class='btn btn-success'>Editar</button>
+        <button type='button' ng-confirm-click="Realmente deseja excluir essa conta?" confirmed-click="delete()" name='btn_remove' class='btn btn-danger'>Excluir</button>
+      </div>
+    </form>
+</div>
 </body>
 </html>
+

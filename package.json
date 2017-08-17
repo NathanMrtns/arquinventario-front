@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
-  "scripts": {		
+  "scripts": {
     "start": "./node_modules/bower/bin/bower install && node app.js",
-    "postinstall":"node ./node_modules/bower/bin/bower install"
+    "postinstall": "node ./node_modules/bower/bin/bower install"
   },
   "dependencies": {
     "body-parser": "^1.10.2",

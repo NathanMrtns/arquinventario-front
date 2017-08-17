@@ -18,7 +18,7 @@ app.controller('usersCtrl', ['serverURL', '$scope', '$http', '$state', function(
 
 	getAllUsers();
 
-    $scope.signUp = function(){
+    $scope.signAdmin = function(){
         if($scope.senha != $scope.senhaRepetida){
             $scope.error = "As senhas devem ser as mesmas!";
         }else if(!validateEmail($scope.email2)){
@@ -37,7 +37,12 @@ app.controller('usersCtrl', ['serverURL', '$scope', '$http', '$state', function(
             }).then(function(result){
                 console.log(result);
                 if(result.status == 200){
-                    alert("Usuário cadastrado com sucesso!")
+                    alert("Admin cadastrado com sucesso!")
+                    $scope.nome          = null;
+                    $scope.email2        = null;
+                    $scope.senha         = null;
+                    $scope.senhaRepetida = null;
+                    $scope.error         = null;
                 }else{
                     $scope.error = result.data;
                 }

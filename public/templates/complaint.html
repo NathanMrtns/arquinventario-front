@@ -26,10 +26,13 @@
         <strong>Descrição:</strong>
         <span>{{description}}</span>
       </p>
+
+      <h2 ng-show="image != null">Foto</h2>
+      <img style="width:60%;" class="col-center-block" data-ng-src="data:image/png;base64,{{image}}">
     </form>
   </div>
       <div class='form-group' style=" width: 50px; margin: 0 auto" ng-show="userRole === 'admin'">
-        <button type='button' confirmed-click="delete()" ng-confirm-click="Realmente deseja excluir a denúncia?" name='btn_remove' class='btn btn-danger'>Excluir</button>
+        <button type='button' ng-confirm-click="Realmente deseja excluir essa denúncia?" confirmed-click="delete()" name='btn_remove' class='btn btn-danger'>Excluir</button>
       </div>
 </body>
 </html>

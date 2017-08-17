@@ -32,8 +32,16 @@
 					<p ng-show="formAddNewComplaint.description.$invalid && formAddNewComplaint.description.$dirty" class="help-block">Por favor, preencher o campo da descrição.</p>
 				</div>
 
+				<div class="form-group" style="font-size:15px">
+				Foto:
+				<br>
+				<input type="file" ngf-select ng-model="file" name="file"
+					accept="image/*" ngf-max-size="2MB"
+					ngf-model-invalid="errorFile">
+				</div>
+
 				<div class='form-group'>
-					<button type="button" ng-click='submit()' class="btn btn-primary" ng-disabled="formAddNewComplaint.$invalid">Denunciar</button>
+					<button type="button" ng-click='submit(file)' class="btn btn-primary" ng-disabled="formAddNewComplaint.$invalid">Denunciar</button>
 					<button type="button" ng-click='goToHomePage()' class="btn btn-danger">Cancelar</button>
 	      		</div>
 			</form>

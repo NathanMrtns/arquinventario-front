@@ -45,7 +45,7 @@
             <span>{{address}}</span>
         </p>
 
-       <h2><strong>Foto</strong></h2>
+       <h2 ng-show="patImg != null"><strong>Foto</strong></h2>
         <img style="width:70%;" class="col-center-block" data-ng-src="data:image/png;base64,{{patImg}}">
 
         <br>
@@ -72,8 +72,7 @@
   </div>
     <div class='form-group' style="padding-left: 45%" ng-show="userRole === 'admin'">
         <button type='button' ng-click="goToEditPage()" class='btn btn-primary'>Editar</button>
-
-        <button type='button' ng-click="delete()" ng-confirm-click="Realmente deseja excluir o patrimônio?" name='btn_remove' class='btn btn-danger'>Excluir</button>
+        <button type='button' ng-confirm-click="Realmente deseja excluir esse patrimônio?" confirmed-click="delete()" name='btn_remove' class='btn btn-danger'>Excluir</button>
       </div>
 
 

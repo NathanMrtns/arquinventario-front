@@ -26,6 +26,7 @@ app.controller('buildingCtrl', ['serverURL', '$scope', '$http', '$state', functi
 	}).then(function success(response){
         if(response.status == 200){
 			$scope.patImg = _arrayBufferToBase64(response.data);
+			console.log($scope.patImg)
         } else {
             alert('Houve um erro!');
         }

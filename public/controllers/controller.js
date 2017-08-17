@@ -1,5 +1,5 @@
 var app = angular.module('app', ['ui.router', 'ngFileUpload', 'ngMaps']);
-app.value('serverURL', { value: 'https://arq-back.herokuapp.com' });
+app.value('serverURL', { value:'http://arq-back.herokuapp.com' });
 
 app.config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise("/home");
@@ -70,7 +70,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
             _id: null,
             title: null,
             description: null,
-            address: null
+            address: null,
+            imagePath: null
         },
         templateUrl: "templates/complaint.html",
         controller: "complaintCtrl"

@@ -6,15 +6,38 @@
 </head>
 <body>
 <h3 align="center">Veja logo abaixo uma lista com as denúncias feitas pelos usuários</h3>
-
-	<div class='jumbotron'>
+	<div class='jumbotron'  style="width: 900px;">
 		<h2 align="center">Denúncias</h2>
-		<div id="card" ng-repeat="complaint in complaints" class="thumbnail">
+		<h3 ng-show="complaints.length == 0" align="center"> Não há nenhuma denúncia </h3>
+		<div id="card"  ng-repeat="complaint in complaints" class="thumbnail">
 			<div class="caption">
 				<h2><strong>{{complaint.title}}</strong></h2>
 				<p><strong>Endereço:</strong> {{complaint.address}}</p>
 				<p><strong>Descrição:</strong> {{complaint.description | limitTo:200}}{{patrimony.history.length > 200 ? '...' : ''}}</p>
-				<a href="" ng-click="goToComplaintPage(complaint)"> mais detalhes </a>
+				<h2 ng-show="complaint.imagePath != null">Foto</h2>
+				<img style="width:50%;" class="col-center-block" data-ng-src="data:image/png;base64,{{complaint.image}}">
+				<br>
+			    <div class='form-group' align="center" ng-show="userRole === 'admin'">
+			    	<button type='button' confirmed-click ="close(complaint._id)" ng-confirm-click="Realmente deseja arquivar essa denúncia?" name='btn_remove' class='btn btn-success'>arquivar</button>
+        			<button type='button' confirmed-click ="delete(complaint._id)" ng-confirm-click="Realmente deseja excluir essa denúncia?" name='btn_remove' class='btn btn-danger'>Excluir</button>
+     			 </div>
+			</div>
+		</div>
+	</div>
+
+	<br>
+
+	<div class='jumbotron'  style="width: 900px;">
+		<h2 align="center">Denúncias arquivadas</h2>
+		<h3 ng-show="closedComplaints.length == 0" align="center"> Não há denúncias arquivadas </h3>
+		<div id="card"  ng-repeat="complaint in closedComplaints" class="thumbnail">
+			<div class="caption">
+				<h2><strong>{{complaint.title}}</strong></h2>
+				<p><strong>Endereço:</strong> {{complaint.address}}</p>
+				<p><strong>Descrição:</strong> {{complaint.description | limitTo:200}}{{patrimony.history.length > 200 ? '...' : ''}}</p>
+				<h2 ng-show="complaint.imagePath != null">Foto</h2>
+				<img style="width:50%;" class="col-center-block" data-ng-src="data:image/png;base64,{{complaint.image}}">
+				<br>
 			</div>
 		</div>
 	</div>
