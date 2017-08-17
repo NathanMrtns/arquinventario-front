@@ -64,7 +64,7 @@ app.controller('editBuildingController', ['serverURL', '$scope', '$http', '$stat
 	$scope.tipology = $state.params.tipology;
 	$scope.address = $state.params.address;
 	$scope.imagePath =
-			console.log($state.params.imagePath);
+	console.log($state.params.imagePath);
 
 	$scope.submit = function(file){
 		var imagePath; 
@@ -104,4 +104,25 @@ app.controller('editBuildingController', ['serverURL', '$scope', '$http', '$stat
 		$state.go("home");
 	}
 
-}])
+}]);
+
+app.directive('jqdatepicker', function () {
+	console.log("test");
+    return {
+        restrict: 'A',
+        require : 'ngModel',
+        link : function (scope, element, attrs, ngModelCtrl) {
+            $(function(){
+                element.datepicker({
+                    dateFormat:'dd/mm/yy',
+                    changeMonth: true,
+                    changeYear: true,
+                    onSelect:function (year) {
+                        ngModelCtrl.$setViewValue(year);
+                        scope.$apply();
+                    }
+                });
+            });
+        }
+    }
+});
