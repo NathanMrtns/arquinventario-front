@@ -2,7 +2,7 @@ var app = angular.module('app', ['ui.router', 'ngFileUpload', 'ngMaps']);
 app.value('serverURL', { value: 'https://arq-back.herokuapp.com' }); //http://localhost:8080
 
 app.config(function($stateProvider, $urlRouterProvider) {
-    //$urlRouterProvider.otherwise("/home"); va ficar em tela para fins de teste
+    $urlRouterProvider.otherwise("/home");
 
     $stateProvider
 

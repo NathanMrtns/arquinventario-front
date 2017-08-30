@@ -18,7 +18,7 @@
 				<img style="width:50%;" class="col-center-block" data-ng-src="data:image/png;base64,{{complaint.image}}">
 				<br>
 			    <div class='form-group' align="center" ng-show="userRole === 'admin'">
-			    	<!--<button type='button' confirmed-click ="close(complaint._id)" ng-confirm-click="Realmente deseja arquivar essa denúncia?" name='btn_remove' class='btn btn-success'>arquivar</button>-->
+			    	<!-- <button type='button' confirmed-click ="close(complaint._id)" ng-confirm-click="Realmente deseja arquivar essa denúncia?" name='btn_remove' class='btn btn-success'>arquivar</button> -->
         			<button type='button' confirmed-click ="delete(complaint._id)" ng-confirm-click="Realmente deseja excluir essa denúncia?" name='btn_remove' class='btn btn-danger'>Excluir</button>
      			 </div>
 			</div>
@@ -27,7 +27,7 @@
 
 	<br>
 
-	<!--<div class='jumbotron'  style="width: 900px;">
+	<!-- <div class='jumbotron'  style="width: 900px;">
 		<h2 align="center">Denúncias arquivadas</h2>
 		<h3 ng-show="closedComplaints.length == 0" align="center"> Não há denúncias arquivadas </h3>
 		<div id="card"  ng-repeat="complaint in closedComplaints" class="thumbnail">
@@ -40,6 +40,6 @@
 				<br>
 			</div>
 		</div>
-	</div>-->
+	</div> -->
 </body>
 </html>

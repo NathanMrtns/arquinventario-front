@@ -11,7 +11,6 @@ app.controller('accountCtrl', ['serverURL', '$scope', '$http', '$state', functio
     	}).then(function success(response){
     		if(response.status == 200){
     			$scope.user = response.data;
-    			console.log(response.data);
             } else {
                 alert('Houve um erro!');
             }

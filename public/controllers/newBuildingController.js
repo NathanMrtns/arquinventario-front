@@ -63,8 +63,10 @@ app.controller('editBuildingController', ['serverURL', '$scope', '$http', '$stat
 	$scope.description = $state.params.description;
 	$scope.tipology = $state.params.tipology;
 	$scope.address = $state.params.address;
-	$scope.imagePath =
-	console.log($state.params.imagePath);
+	$scope.imagePath;
+
+	$scope.styles = ["Arte Deco", "Contemporâneo", "Eclético", "Protomoderno", "Moderno"];
+	$scope.types = ["Comercial Misto", "Institucional", "Religioso", "Residencial"];
 
 	$scope.submit = function(file){
 		var imagePath; 
@@ -107,7 +109,6 @@ app.controller('editBuildingController', ['serverURL', '$scope', '$http', '$stat
 }]);
 
 app.directive('jqdatepicker', function () {
-	console.log("test");
     return {
         restrict: 'A',
         require : 'ngModel',
