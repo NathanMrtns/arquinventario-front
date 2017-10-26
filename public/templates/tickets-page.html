@@ -7,7 +7,7 @@
 <body>
 
 	<br>
-	<h1 style="padding-left: 35%"> Sugestões de pendentes </h1>
+	<h1 align = "center"> Sugestões de pendentes </h1>
 	<h3 align="center" ng-show="(tickets | filter: {status: 'pending'}).length == 0">Nenhuma sugestão pendente <h3>
 	<div id="ticketsBox" ng-repeat="ticket in tickets | filter: {status: 'pending'}">
 		<div id="acceptedTicketsBox" class="thumbnail">
@@ -16,7 +16,7 @@
 		  		<p>Endereço: {{ticket.address}}</p>
 				<p>Descrição: {{ticket.description}}</p>
 				<h2 ng-show="ticket.image != null">Foto</h2>
-        		<img style="width:60%;" class="col-center-block" data-ng-src="data:image/png;base64,{{ticket.image}}">	
+        		<img style="width:60%;" class="col-center-block" data-ng-src="data:image/png;base64,{{ticket.image}}">
 				<br>
 		  		<button id="acceptButton" type="button" class="btn btn-primary" ng-click="acceptTicket(ticket)">Aceitar</button>
 		  		<button id="refuseButton" type="button" class="btn btn-danger" ng-click="refuseTicket(ticket)">Recusar</button>
@@ -25,7 +25,8 @@
 	</div>
 
 	<br>
-	<h1 style="padding-left: 35%"> Sugestões Aprovadas </h1>
+	<h1 align = "center"> Sugestões Aprovadas </h1>
+	<h3 align="center" ng-show="(tickets | filter: {status: 'accepted'}).length == 0">Nenhuma sugestão aceita <h3>
 	<div id="ticketsBox" ng-repeat="ticket in tickets | filter: {status: 'accepted'}">
 		<div id="acceptedTicketsBox" class="thumbnail">
 			<div class="caption">

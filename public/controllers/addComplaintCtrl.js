@@ -8,7 +8,7 @@ app.controller('addComplaintCtrl', ['serverURL', '$scope', '$http', '$state', 'F
 	$scope.description = "";
 
 	$scope.submit = function(file){
-		var imagePath; 
+		var imagePath;
 		if (file != undefined && $scope.title.replace(/ /g,'')+file.name != $state.params.imagePath){
 			imagePath = $scope.title.replace(/ /g,'')+file.name
 		} else {
@@ -34,6 +34,7 @@ app.controller('addComplaintCtrl', ['serverURL', '$scope', '$http', '$state', 'F
 				}).catch(function(){
 					console.log('Upload failed');
 				});
+				alert("Denúncia cadastrada com sucesso!");
 				$state.go("home");
 			}
 		});

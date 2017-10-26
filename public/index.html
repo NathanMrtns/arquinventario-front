@@ -1,9 +1,9 @@
-﻿<!DOCTYPE>
+<!DOCTYPE>
 <html ng-app="app">
 <head>
-	<!-- Scripts --> 
+	<!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
 	<script src="lib/angular/angular.js"></script>
     <script src="lib/ng-file-upload/ng-file-upload-all.js"></script>
     <script src="lib/ng-maps/dist/ng-maps.js"></script>
@@ -20,11 +20,11 @@
     <!-- <link rel="stylesheet" href="assets/login.css">   -->
     <!-- <link rel="stylesheet" href="assets/simple-sidebar.css"> -->
     <!-- <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'> -->
-    
+
     <title>Arquinventario</title>
 </head>
 
-<body ng-controller="MenuCtrl as ctrl">        
+<body ng-controller="MenuCtrl as ctrl">
 <!-- Sidebar -->
     <div ng-show="userRole !== 'admin'">
         <nav class="navbar navbar-inverse">
@@ -99,7 +99,6 @@
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sugestões<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                    <li><a href="" ng-click="addNewTicket()">Criar</a></li>
                     <li><a href="" ng-click="tickets()">Listar</a></li>
                     </ul>
                 </li>
@@ -155,7 +154,7 @@
             if(menuClass == "toggled"){
                 $('li').show();
                 $('hr').show();
-            
+
             }else{
                 $('li').not(":eq(0)").hide();
                 $('hr').hide();

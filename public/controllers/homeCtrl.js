@@ -37,16 +37,18 @@ app.controller('homeCtrl', ['serverURL', '$scope', '$http', '$state', function(s
 	}
 
 	$scope.search = function(){
+		console.log(type)
 		if($scope.searchValue != ""){
 			$http({
 				method: 'GET',
 				url: serverURL.value + '/patrimony/'+type+'/'+$scope.searchValue,
 			}).then(function(result){
+				console.log(result.data);				
 				if(result.status == 200){
 					if (result.data.length == 0)
 					{
 						$scope.isName = 1;
-						type = "name";
+						//type = "name";
 						$scope.patrimonies = [];
 						$scope.error = "Nenhuma construção foi encontrada.";
 					}

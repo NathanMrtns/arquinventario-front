@@ -9,17 +9,20 @@
 	<div id='addNewComplaintBox' class='jumbotron'>
 		<h2>Sugerir um novo patrimônio</h2>
 
-		<form id="formAddNewTicket" name"formAddNewComplaint" class"form-horizontal" enctype="multipart/form-data" method="POST">
+		<form id="formAddNewTicket" name="formAddNewTicket" class="form-horizontal" enctype="multipart/form-data" method="POST">
 			<div class="form-group">
 				<input type="text" class="form-control" placeholder="Nome do Patrimônio*" name="title" ng-model="title" ng-required="true">
+				<p ng-show="formAddNewTicket.title.$invalid && formAddNewTicket.title.$dirty" class=help-block>Por favor, preencher o campo do nome do patrimônio.</p>
 			</div>
 
 			<div class="form-group">
 				<input type="text" class="form-control" placeholder="Endereço*" name="address" ng-model="address" ng-required="true">
+				<p ng-show="formAddNewTicket.address.$invalid && formAddNewTicket.address.$dirty" class=help-block>Por favor, preencher o campo do endereço do patrimônio.</p>
 			</div>
 
 			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Descrição" name="description" ng-model="description" ng-required="true">
+				<input type="text" class="form-control" placeholder="Descrição*" name="description" ng-model="description" ng-required="true">
+				<p ng-show="formAddNewTicket.description.$invalid && formAddNewTicket.description.$dirty" class=help-block>Por favor, preencher o campo da descrição do patrimônio.</p>
 			</div>
 
 		    <div class="form-group" style="font-size:15px">
@@ -30,8 +33,8 @@
 					ngf-model-invalid="errorFile">
 			</div>
 
-			<div class+"form-group">
-				<button type="button" ng-click='submit(file)' class="btn btn-primary">Adicionar</button>
+			<div class="form-group">
+				<button type="button" ng-click='submit(file)' class="btn btn-primary" ng-disabled="formAddNewTicket.$invalid">Adicionar</button>
 				<button type="button" ng-click='goToHomePage()' class="btn btn-danger">Cancelar</button>
 			</div>
 		</form>

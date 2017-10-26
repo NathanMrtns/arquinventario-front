@@ -11,12 +11,12 @@
     <form id="formAddNewBuilding" name="formAddNewBuilding" class="form-horizontal" enctype="multipart/form-data" method="POST">
       <div class="form-group">
         <input type="text" class="form-control" placeholder="Nome do Patrimônio*" name="name" id='name' ng-model="name" ng-required="true">
-        <p ng-show="formAddNewBuilding.name.$invalid && formAddNewBuilding.name.$dirty" class=help-block>Por favor, preencher o campo do nome.</p>
+        <p ng-show="formAddNewBuilding.name.$invalid && formAddNewBuilding.name.$dirty" class="help-block">Por favor, preencher o campo do nome.</p>
       </div>
 
       <div class="form-group">
         <input type="text" class="form-control" placeholder="Endereço*" name="address" id='address' ng-model="address" ng-required="true">
-        <p ng-show="formAddNewBuilding.address.$invalid && formAddNewBuilding.address.$dirty" class=help-block>Por favor, preencher o campo do endereço.</p>
+        <p ng-show="formAddNewBuilding.address.$invalid && formAddNewBuilding.address.$dirty" class="help-block">Por favor, preencher o campo do endereço.</p>
       </div>
 
       <div class="form-group">
@@ -29,7 +29,7 @@
           <option ng-repeat="style in styles" value="{{style}}">{{style}}</option>
         </select>
 
-        <p ng-show="formAddNewBuilding.style.$invalid && formAddNewBuilding.style.$dirty" class=help-block>Por favor, preencher o campo do estilo arquitetônico.</p>
+        <p ng-show="formAddNewBuilding.style.$invalid && formAddNewBuilding.style.$dirty" class="help-block">Por favor, preencher o campo do estilo arquitetônico.</p>
       </div>
 
       <div class="form-group">
@@ -46,7 +46,7 @@
           <option ng-repeat="type in types" value="{{type}}">{{type}}</option>
         </select>
 
-        <p ng-show="formAddNewBuilding.tipology.$invalid && formAddNewBuilding.tipology.$dirty" class=help-block>Por favor, preencher o campo da tipologia.</p>
+        <p ng-show="formAddNewBuilding.tipology.$invalid && formAddNewBuilding.tipology.$dirty" class="help-block">Por favor, preencher o campo da tipologia.</p>
       </div>
 
       <div class="form-group" style="font-size:15px">
@@ -58,7 +58,7 @@
       </div>
       <input type="hidden" class="form-control" placeholder="Fotos" name='photos' id='photos' ng-model='photos'>
 
-      <div class='form-group'>
+      <div class="form-group">
         <button type="button" ng-click='submit(file)' class="btn btn-primary" ng-disabled="formAddNewBuilding.$invalid">Cadastrar</button>
         <button type="button" ng-click='goToHomePage()' class="btn btn-danger">Cancelar</button>
       </div>

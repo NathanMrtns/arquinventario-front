@@ -3,9 +3,9 @@ var app = angular.module('app');
 app.controller('usersCtrl', ['serverURL', '$scope', '$http', '$state', function(serverURL, $scope, $http, $state) {
 	$scope.users         = "";
 	$scope.senhaRepetida = "";
-    $scope.senha         = "";
-    $scope.nome          = "";
-    $scope.email2        = "";
+  $scope.senha         = "";
+  $scope.nome          = "";
+  $scope.email2        = "";
 
 	getAllUsers = function() {
 		$http({
@@ -49,7 +49,7 @@ app.controller('usersCtrl', ['serverURL', '$scope', '$http', '$state', function(
             });
         }
     }
-    
+
     function validateEmail(email) {
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(email);
